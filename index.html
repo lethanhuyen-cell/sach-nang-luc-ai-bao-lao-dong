@@ -173,6 +173,31 @@
             line-height: 1.4;
         }
 
+        .drawer-part-header {
+            display: block;
+            padding: 14px 18px 8px 18px;
+            background: rgba(163, 34, 21, 0.08);
+            color: var(--accent-red);
+            font-size: 12.5px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.6px;
+            border-bottom: 1px solid var(--card-border);
+            border-top: 1px solid var(--card-border);
+            margin-top: 6px;
+        }
+
+        .drawer-part-header:first-of-type {
+            margin-top: 0;
+            border-top: none;
+        }
+
+        .drawer-part-header a {
+            color: var(--accent-red);
+            text-decoration: none;
+            display: block;
+        }
+
         .drawer-item:active {
             background-color: var(--card-bg);
             color: var(--accent-red);
@@ -651,7 +676,6 @@
             <span class="nav-title">NĂNG LỰC AI PHÓNG VIÊN</span>
         </div>
         <div class="nav-right">
-            <button class="nav-btn" onclick="openAudioPlayer()" title="Bật Sách Nói">🎧</button>
             <button class="nav-btn" onclick="adjustFontSize(1)" title="Tăng cỡ chữ">A+</button>
             <button class="nav-btn" onclick="adjustFontSize(-1)" title="Giảm cỡ chữ">A-</button>
         </div>
@@ -668,10 +692,11 @@
             <button class="nav-btn" onclick="closeDrawer()">✕</button>
         </div>
         <div class="drawer-content">
-            <a href="audio.html" class="drawer-item" style="color: #a32215; font-weight: 700;">🎧 SÁCH NÓI AUDIO (CHẾ ĐỘ LÁI XE)</a>
             <a href="#foreword" class="drawer-item" onclick="closeDrawer()">Lời nói đầu</a>
+<div class="drawer-part-header">PHẦN I: BỐI CẢNH & KINH NGHIỆM THỰC TẾ</div>
 <a href="#part1" class="drawer-item" onclick="closeDrawer()">Phần I: Bối cảnh Báo chí Hiện đại</a>
 <a href="#experience" class="drawer-item" onclick="closeDrawer()">Chia sẻ Kinh nghiệm Tác nghiệp AI (11 Điểm)</a>
+<div class="drawer-part-header">PHẦN II: 15 CHƯƠNG CHI TIẾT</div>
 <a href="#chap01" class="drawer-item" onclick="closeDrawer()">Chương 1: Hiểu Đúng Bản Chất AI</a>
 <a href="#chap02" class="drawer-item" onclick="closeDrawer()">Chương 2: Thiết Kế Nhiệm Vụ Cho AI</a>
 <a href="#chap03" class="drawer-item" onclick="closeDrawer()">Chương 3: Kiểm Chứng Dữ Kiện & Ngăn Ảo Giác</a>
@@ -705,18 +730,6 @@
             </div>
         </div>
 
-
-        <!-- Banner Sách Nói Ô Tô -->
-        <div style="background: linear-gradient(135deg, #3d2314 0%, #29180c 100%); border: 1.5px solid #8c532b; border-radius: 12px; padding: 16px; margin: 20px 0; display: flex; align-items: center; justify-content: space-between; gap: 12px; box-shadow: 0 4px 14px rgba(0,0,0,0.15);">
-            <div>
-                <div style="font-size: 11px; font-weight: 700; color: #ffcc80; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 3px;">🚗 CHẾ ĐỘ LÁI XE / TÁC NGHIỆP HIỆN TRƯỜNG</div>
-                <div style="font-size: 15px; font-weight: 700; color: #ffffff;">Sách Nói Audio (Trọn bộ 18 Chương)</div>
-                <div style="font-size: 12px; color: #d7ccc8; margin-top: 2px;">Nghe tiện lợi trên ô tô qua Bluetooth hoặc CarPlay</div>
-            </div>
-            <a href="audio.html" style="background: #a32215; color: #ffffff; text-decoration: none; font-size: 13px; font-weight: 700; padding: 10px 16px; border-radius: 20px; white-space: nowrap; box-shadow: 0 2px 8px rgba(163,34,21,0.4);">🎧 Nghe Ngay</a>
-        </div>
-    
-
         <!-- Nội dung sách -->
         
         <section id="foreword" class="book-section">
@@ -733,7 +746,7 @@
 </ol>
 <p class="body-p">Mong rằng cuốn tài liệu này sẽ là người bạn đồng hành thiết thực, hỗ trợ các anh em tác nghiệp an toàn, nhanh chóng và ngày càng nâng cao chất lượng tác phẩm báo chí của văn phòng mình.</p>
 <p class="body-p"><em>TP. Hồ Chí Minh, tháng 10 năm 2026</em></p>
-<p class="body-p"><strong>LÃNH ĐẠO VĂN PHÒNG ĐẠI DIỆN TẠI TP. HỒ CHÍ MINH</strong></p>
+<p class="body-p"><strong>Lê Thanh Uyên</strong></p>
         </section>
         
 
@@ -1029,6 +1042,17 @@
 <p class="body-p">AI có thể làm tăng tốc độ xử lý công việc. Nó có thể mở rộng phạm vi thông tin mà một người có thể tiếp cận và giúp nhìn một vấn đề từ nhiều góc hơn. Nhưng mức chất lượng cuối cùng vẫn phụ thuộc rất nhiều vào tiêu chuẩn của người sử dụng.</p>
 <p class="body-p">Với tôi, câu hỏi hữu ích nhất mà AI có thể giúp trả lời không phải là “viết bài này thế nào”, mà là:</p>
 <p class="body-p">Trong rất nhiều thông tin đang xuất hiện, điều gì thực sự đáng để một nhà báo dành thời gian kiểm chứng và theo đuổi?</p>
+        </section>
+        
+
+        <section id="part2_intro" class="book-section">
+            <div class="section-indicator">📚 PHẦN II: 15 CHƯƠNG CHI TIẾT</div>
+            <h1 class="chapter-title">PHẦN II: 15 CHƯƠNG CHI TIẾT</h1>
+<h2 class="section-title">15 CHƯƠNG NGHIỆP VỤ THỰC CHIẾN TÒA SOẠN</h2>
+<p class="body-p"><em>Cẩm nang Nghiệp vụ Dành cho Phóng viên — Văn phòng Đại diện tại TP. Hồ Chí Minh</em></p>
+<p class="body-p"><em>Đồng bộ Luật Báo chí số 126/2025/QH15 & Nghị định 237/2026/NĐ-CP</em></p>
+<hr class="divider"/>
+<p class="body-p">Hệ thống 15 chương nghiệp vụ thực chiến được thiết kế toàn diện, đi từ nền tảng nhận thức, phương pháp thiết kế nhiệm vụ chuẩn mực, kỹ thuật thẩm tra nguồn tin, đến các nghiệp vụ chuyên sâu: săn đề tài, bóc tách hồ sơ lớn, báo chí dữ liệu, phỏng vấn phản biện, chắp bút BLUF, đa phương tiện và bảo mật an toàn nguồn tin tác nghiệp.</p>
         </section>
         
 
