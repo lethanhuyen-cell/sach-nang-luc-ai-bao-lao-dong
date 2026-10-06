@@ -173,6 +173,20 @@
             line-height: 1.4;
         }
 
+        .drawer-item.sub-item {
+            padding: 8px 18px 8px 32px;
+            font-size: 13px;
+            opacity: 0.88;
+            background: rgba(0, 0, 0, 0.015);
+            border-bottom: 1px dashed var(--card-border);
+        }
+
+        .drawer-item.sub-item:before {
+            content: "• ";
+            color: var(--accent-red);
+            font-weight: bold;
+        }
+
         .drawer-part-header {
             display: block;
             padding: 14px 18px 8px 18px;
@@ -262,6 +276,25 @@
             max-width: var(--content-max-width);
             margin: 0 auto;
             padding: 0 16px;
+            position: relative;
+        }
+
+        /* Watermark Bản quyền bảo hộ nội dung */
+        body::before {
+            content: "Copyright © Uyen Le";
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotate(-35deg);
+            font-size: clamp(34px, 7vw, 68px);
+            font-weight: 800;
+            color: rgba(163, 34, 21, 0.06);
+            letter-spacing: 4px;
+            pointer-events: none;
+            z-index: 900;
+            white-space: nowrap;
+            user-select: none;
+            -webkit-user-select: none;
         }
 
         .book-section {
@@ -696,6 +729,17 @@
 <div class="drawer-part-header">PHẦN I: BỐI CẢNH & KINH NGHIỆM THỰC TẾ</div>
 <a href="#part1" class="drawer-item" onclick="closeDrawer()">Mục 1: Bối cảnh Báo chí Hiện đại</a>
 <a href="#experience" class="drawer-item" onclick="closeDrawer()">Mục 2: Chia sẻ Kinh nghiệm Tác nghiệp AI (11 Điểm)</a>
+<a href="#1-b-t-u-t-v-n-c-ng-vi-c-kh-ng-b-t-u-t-c-ng-ngh" class="drawer-item sub-item" onclick="closeDrawer()">1. Bắt đầu từ vấn đề công việc, không bắt đầu từ công nghệ</a>
+<a href="#2-giao-vai-tr-cho-ai-v-t-o-cho-n-ng-ng-c-nh" class="drawer-item sub-item" onclick="closeDrawer()">2. Giao vai trò cho AI và tạo cho nó đủ ngữ cảnh</a>
+<a href="#3-qu-t-r-ng-nghi-n-c-u-s-u-l-c-m-nh-v-ch-d-u-hi-u-b-t-th-ng" class="drawer-item sub-item" onclick="closeDrawer()">3. Quét rộng, nghiên cứu sâu, lọc mạnh và chú ý dấu hiệu bất thường</a>
+<a href="#4-ph-n-bi-t-d-ki-n-t-n-hi-u-v-gi-thuy-t-sau-m-i-c-ch-o-quy-t-s-ch-d-li-u-v-i-s-ng" class="drawer-item sub-item" onclick="closeDrawer()">4. Phân biệt dữ kiện, tín hiệu và giả thuyết</a>
+<a href="#5-ng-ch-h-i-c-tin-g-h-y-t-m-xem-c-i-g-ang-thay-i" class="drawer-item sub-item" onclick="closeDrawer()">5. Đừng chỉ hỏi “có tin gì”, hãy tìm xem “cái gì đang thay đổi”</a>
+<a href="#6-m-t-t-ng-ch-c-gi-tr-khi-i-c-t-i-t-c-nghi-p" class="drawer-item sub-item" onclick="closeDrawer()">6. Một ý tưởng chỉ có giá trị khi đi được tới tác nghiệp</a>
+<a href="#7-d-ng-ai-nh-m-t-i-th-ph-n-bi-n-kh-ng-ph-i-ng-i-ng-t-nh" class="drawer-item sub-item" onclick="closeDrawer()">7. Dùng AI như một đối thủ phản biện, không phải người đồng tình</a>
+<a href="#8-d-ng-ai-tr-c-khi-vi-t-kh-ng-b-t-u-t-ti-u" class="drawer-item sub-item" onclick="closeDrawer()">8. Dùng AI trước khi viết, không bắt đầu từ tiêu đề</a>
+<a href="#9-u-ra-u-ti-n-hi-m-khi-l-u-ra-cu-i-c-ng" class="drawer-item sub-item" onclick="closeDrawer()">9. Đầu ra đầu tiên hiếm khi là đầu ra cuối cùng</a>
+<a href="#10-t-prompt-c-nh-n-n-h-th-ng-tri-th-c-c-a-t-a-so-n" class="drawer-item sub-item" onclick="closeDrawer()">10. Từ prompt cá nhân đến hệ thống tri thức của tòa soạn</a>
+<a href="#11-ranh-gi-i-cu-i-c-ng-v-n-l-tr-ch-nhi-m-ngh-nghi-p-c-a-con-ng-i" class="drawer-item sub-item" onclick="closeDrawer()">11. Ranh giới cuối cùng vẫn là trách nhiệm nghề nghiệp</a>
 <div class="drawer-part-header">PHẦN II: 15 CHƯƠNG CHI TIẾT</div>
 <a href="#chap01" class="drawer-item" onclick="closeDrawer()">Chương 1: Hiểu Đúng Bản Chất AI</a>
 <a href="#chap02" class="drawer-item" onclick="closeDrawer()">Chương 2: Thiết Kế Nhiệm Vụ Cho AI</a>
@@ -749,22 +793,22 @@
             <div class="section-indicator">📖 Mục 1: Bối cảnh Báo chí Hiện đại</div>
             <h1 class="chapter-title">BỐI CẢNH BÁO CHÍ HIỆN ĐẠI VÀ ỨNG DỤNG TRÍ TUỆ NHÂN TẠO (AI)</h1>
 <hr class="divider"/>
-<h2 class="section-title">BA ĐỊNH HƯỚNG CỐT LÕI KHI TIẾP CẬN AI</h2>
+<h2 id="ba-nh-h-ng-c-t-l-i-khi-ti-p-c-n-ai" class="section-title">BA ĐỊNH HƯỚNG CỐT LÕI KHI TIẾP CẬN AI</h2>
 <ol class="content-list numbered">
 <li><strong>AI là công cụ trợ lực, phóng viên giữ vai trò quyết định:</strong> Công nghệ AI được sử dụng nhằm giảm bớt các thao tác thủ công, lặp lại (bóc băng ghi âm, tóm tắt sơ bộ tài liệu, rà soát văn bản lớn). Nhờ đó, phóng viên có thêm thời gian dành cho các khâu quan trọng nhất: trực tiếp đi thực tế hiện trường, tiếp cận nhân vật, phát hiện đề tài mới và đào sâu phân tích.</li>
 <li><strong>Nâng cao năng suất và chất lượng tác phẩm:</strong> Trong môi trường thông tin nhanh và đa dạng, việc làm chủ các công cụ số giúp phóng viên phân tích số liệu chuẩn xác hơn, thể hiện bài viết sinh động hơn qua infographic, video ngắn, đáp ứng nhu cầu tiếp nhận thông tin đa nền tảng của bạn đọc.</li>
 <li><strong>Kỷ luật thông tin và trách nhiệm nghề nghiệp:</strong> Mọi dữ kiện trước khi xuất bản đều phải được con người kiểm chứng độc lập. Tuyệt đối không để AI tự tạo dữ liệu giả định; tuân thủ nghiêm ngặt quy định bảo vệ dữ liệu cá nhân (Nghị định 13/2023/NĐ-CP) và Luật Báo chí số 126/2025/QH15. Phóng viên luôn là người chịu trách nhiệm pháp lý và đạo đức cao nhất đối với tác phẩm của mình.</li>
 </ol>
 <hr class="divider"/>
-<h2 class="section-title">PHẦN I. XU HƯỚNG BÁO CHÍ SỐ VÀ CÔNG NGHỆ MỚI</h2>
-<h3 class="subsection-title">1. Thay đổi trong phương thức tìm kiếm và tiếp nhận thông tin</h3>
+<h2 id="ph-n-i-xu-h-ng-b-o-ch-s-v-c-ng-ngh-m-i" class="section-title">PHẦN I. XU HƯỚNG BÁO CHÍ SỐ VÀ CÔNG NGHỆ MỚI</h2>
+<h3 id="1-thay-i-trong-ph-ng-th-c-t-m-ki-m-v-ti-p-nh-n-th-ng-tin" class="subsection-title">1. Thay đổi trong phương thức tìm kiếm và tiếp nhận thông tin</h3>
 <p class="body-p">Sự phát triển nhanh chóng của các công cụ tìm kiếm tích hợp AI (như Google Gemini, SearchGPT, Perplexity) đang làm thay đổi thói quen đọc tin tức của công chúng:</p>
 <ul class="content-list">
 <li><strong>Xu hướng tìm kiếm trực tiếp (Zero-Click Search):</strong> Các công cụ tìm kiếm ngày càng có xu hướng tóm tắt và hiển thị câu trả lời ngay trên màn hình tra cứu, khiến lượng độc giả nhấp chuột vào các đường dẫn tin tức đơn giản bị sụt giảm.</li>
 <li><strong>Giá trị của thông tin nguyên bản và thực tế hiện trường:</strong> Trước thực tế máy móc có thể tổng hợp nhanh các thông tin sự vụ cơ bản, bạn đọc ngày càng đánh giá cao những bài viết có giá trị thực chứng: phóng sự hiện trường, điều tra độc quyền, phỏng vấn chuyên sâu và phân tích chính sách nhiều chiều — những nội dung chỉ người làm báo trực tiếp dấn thân mới có được.</li>
 </ul>
 <hr class="divider"/>
-<h3 class="subsection-title">2. Tối ưu hóa phương thức tác nghiệp của phóng viên</h3>
+<h3 id="2-t-i-u-h-a-ph-ng-th-c-t-c-nghi-p-c-a-ph-ng-vi-n" class="subsection-title">2. Tối ưu hóa phương thức tác nghiệp của phóng viên</h3>
 <p class="body-p">Việc ứng dụng công nghệ phù hợp giúp phóng viên giải phóng đáng kể thời gian và công sức:</p>
 
         <div class="table-container">
@@ -801,7 +845,7 @@
 </tr>
 </tbody></table></div>
 <hr class="divider"/>
-<h3 class="subsection-title">3. Kinh nghiệm ứng dụng công nghệ tại các cơ quan báo chí quốc tế</h3>
+<h3 id="3-kinh-nghi-m-ng-d-ng-c-ng-ngh-t-i-c-c-c-quan-b-o-ch-qu-c-t" class="subsection-title">3. Kinh nghiệm ứng dụng công nghệ tại các cơ quan báo chí quốc tế</h3>
 <p class="body-p">Nhìn ra quốc tế, các cơ quan thông tấn lớn đã ứng dụng công nghệ từ sớm với định hướng rõ ràng:</p>
 <ul class="content-list">
 <li><strong>Hãng thông tấn AP (Mỹ):</strong> Sử dụng thuật toán tự động xử lý các bảng báo cáo tài chính định kỳ từ năm 2014, giúp phóng viên kinh tế không phải tốn thời gian chép số liệu thủ công mà tập trung đi phỏng vấn chuyên gia, phân tích xu hướng thị trường.</li>
@@ -809,15 +853,15 @@
 <li><strong>The Guardian (Anh):</strong> Đặt ra nguyên tắc an toàn dữ liệu nghiêm ngặt: mọi bản thảo, tài liệu nhạy cảm hoặc nguồn tin cần bảo hộ tuyệt đối không được nạp vào các hệ thống AI đám mây công cộng.</li>
 </ul>
 <hr class="divider"/>
-<h3 class="subsection-title">4. Xu hướng phát triển của tòa soạn trong tương lai</h3>
+<h3 id="4-xu-h-ng-ph-t-tri-n-c-a-t-a-so-n-trong-t-ng-lai" class="subsection-title">4. Xu hướng phát triển của tòa soạn trong tương lai</h3>
 <ol class="content-list numbered">
 <li><strong>Thông tin cơ bản được tự động hóa:</strong> Các dữ liệu có cấu trúc sẵn (thị trường, thời tiết, kết quả thể thao) sẽ do máy móc hỗ trợ xử lý sơ bộ. Năng lực cạnh tranh của nhà báo tập trung vào phóng sự chuyên đề, phản biện xã hội và điều tra dân sinh.</li>
 <li><strong>Quy trình làm việc được tinh gọn:</strong> Tòa soạn ứng dụng các công cụ hỗ trợ theo dõi thông tin từ các cổng dữ liệu công khai để sớm gửi thông báo cho phóng viên theo dõi mảng.</li>
 <li><strong>Đề cao tính minh bạch và độ tin cậy:</strong> Độc giả sẵn sàng tin tưởng và gắn bó với các cơ quan báo chí có quy trình kiểm chứng rõ ràng, thông tin trung thực, khách quan và nhân văn.</li>
 </ol>
 <hr class="divider"/>
-<h2 class="section-title">PHẦN II. QUY ĐỊNH PHÁP LÝ VÀ CHUẨN MỰC TÁC NGHIỆP</h2>
-<h3 class="subsection-title">1. Hành lang pháp lý mới: Luật Báo chí số 126/2025/QH15 & Nghị định 237/2026/NĐ-CP</h3>
+<h2 id="ph-n-ii-quy-nh-ph-p-l-v-chu-n-m-c-t-c-nghi-p" class="section-title">PHẦN II. QUY ĐỊNH PHÁP LÝ VÀ CHUẨN MỰC TÁC NGHIỆP</h2>
+<h3 id="1-h-nh-lang-ph-p-l-m-i-lu-t-b-o-ch-s-126-2025-qh15-ngh-nh-237-2026-n-cp" class="subsection-title">1. Hành lang pháp lý mới: Luật Báo chí số 126/2025/QH15 & Nghị định 237/2026/NĐ-CP</h3>
 <p class="body-p">Trong hoạt động tác nghiệp, phóng viên cần nắm chắc và tuân thủ các quy định hiện hành:</p>
 <ul class="content-list">
 <li><strong>Luật Báo chí số 126/2025/QH15 (hiệu lực từ 01/07/2026):</strong> Quy định rõ trách nhiệm của nhà báo khi hoạt động trên môi trường số. Dù sử dụng bất kỳ công cụ nào hỗ trợ, người viết và ban biên tập đều chịu trách nhiệm toàn diện về tính xác thực của tác phẩm trước pháp luật và bạn đọc.</li>
@@ -826,13 +870,13 @@
 <li><strong>Bảo vệ bí mật nguồn tin:</strong> Nghiêm cấm đưa danh tính người tố giác, file ghi âm nhạy cảm hoặc tài liệu chưa được phép công bố vào bất kỳ hệ thống AI nào kết nối mạng.</li>
 </ul>
 <hr class="divider"/>
-<h3 class="subsection-title">2. Giữ gìn sự trong sáng của tiếng Việt và phong cách báo chí đĩnh đạc</h3>
+<h3 id="2-gi-g-n-s-trong-s-ng-c-a-ti-ng-vi-t-v-phong-c-ch-b-o-ch-nh-c" class="subsection-title">2. Giữ gìn sự trong sáng của tiếng Việt và phong cách báo chí đĩnh đạc</h3>
 <ul class="content-list">
 <li><strong>Khử bỏ văn mẫu sáo rỗng:</strong> Không sao chép nguyên văn lối hành văn dịch thô của các mô hình AI nước ngoài (<em>"trong bối cảnh hiện nay", "bức tranh toàn cảnh", "đóng vai trò ngọn hải đăng"...</em>). Câu văn cần gãy gọn, giàu thực tế, tôn trọng sự thật khách quan.</li>
 <li><strong>Chuẩn hóa thể thức theo Nghị định 30/2020/NĐ-CP:</strong> Trích dẫn đúng tên gọi cơ quan, ban ngành; phân biệt chính xác các loại văn bản quy phạm pháp luật (Luật, Nghị quyết, Nghị định, Quyết định, Thông tư) để tránh sai sót về mặt pháp lý.</li>
 </ul>
 <hr class="divider"/>
-<h3 class="subsection-title">3. Khai thác dữ liệu công khai phục vụ bài viết</h3>
+<h3 id="3-khai-th-c-d-li-u-c-ng-khai-ph-c-v-b-i-vi-t" class="subsection-title">3. Khai thác dữ liệu công khai phục vụ bài viết</h3>
 <p class="body-p">Phóng viên các mảng cần chủ động khai thác các nguồn dữ liệu chính thống của cơ quan quản lý nhà nước:</p>
 <ol class="content-list numbered">
 <li><strong>Hệ thống Mạng Đấu thầu Quốc gia (muasamcong.mpi.gov.vn):</strong> Tra cứu thông tin mời thầu, kết quả lựa chọn nhà thầu, theo dõi tiến độ các dự án đầu tư công.</li>
@@ -841,14 +885,14 @@
 <li><strong>Cổng Dữ liệu Thống kê Quốc gia (gso.gov.vn):</strong> Khai thác số liệu về kinh tế - xã hội, việc làm, thu nhập, chỉ số giá cả để phục vụ các bài phân tích có chiều sâu.</li>
 </ol>
 <hr class="divider"/>
-<h3 class="subsection-title">4. Nâng cao năng lực chuyên môn của phóng viên theo dõi mảng</h3>
+<h3 id="4-n-ng-cao-n-ng-l-c-chuy-n-m-n-c-a-ph-ng-vi-n-theo-d-i-m-ng" class="subsection-title">4. Nâng cao năng lực chuyên môn của phóng viên theo dõi mảng</h3>
 <p class="body-p">Phóng viên phụ trách các mảng nội dung đa dạng của văn phòng (từ kinh tế đô thị, thị trường tài chính, pháp luật, cải cách hành chính đến an sinh xã hội, đời sống dân sinh) cần xây dựng kho tư liệu riêng cho mình:</p>
 <ul class="content-list">
 <li><strong>Tích lũy hồ sơ chuyên đề:</strong> Lưu trữ tài liệu pháp lý, báo cáo tổng kết ngành theo thời gian để khi có vấn đề thời sự phát sinh, có thể đưa ra góc nhìn sâu sắc, kịp thời.</li>
 <li><strong>Đa dạng hóa sản phẩm báo chí:</strong> Tự trang bị kỹ năng phác thảo nội dung ngắn gọn cho đồ họa, kịch bản clip ngắn, đáp ứng xu hướng tiếp cận thông tin nhanh của độc giả trên nền tảng số.</li>
 </ul>
 <hr class="divider"/>
-<h2 class="section-title">LỜI KẾT NỐI</h2>
+<h2 id="l-i-k-t-n-i" class="section-title">LỜI KẾT NỐI</h2>
 <p class="body-p">Xuất phát từ những đòi hỏi thực tiễn của công việc hằng ngày, lãnh đạo văn phòng đã tổng hợp 15 chương nghiệp vụ cụ thể dưới đây. Mỗi chương đều đi thẳng vào từng tình huống tác nghiệp quen thuộc: từ nhận diện đúng công cụ, cách đặt yêu cầu rõ ràng, kiểm chứng dữ kiện, đọc tài liệu lớn, đến tác nghiệp hiện trường và bảo vệ an toàn thông tin — đồng hành cùng anh em phóng viên nâng cao hiệu quả công việc và giữ vững bản lĩnh nghề nghiệp.</p>
         </section>
         
@@ -859,13 +903,13 @@
 <p class="body-p">Sau một thời gian mò mẫm sử dụng AI trong công việc, tôi nhận ra mình đã thay đổi cách nhìn về công cụ này.</p>
 <p class="body-p">Ban đầu, AI thường được sử dụng cho những việc khá trực tiếp: tóm tắt tài liệu, gợi ý tiêu đề, sửa câu, lên dàn ý hoặc hỗ trợ viết. Những việc đó có ích, nhất là khi cần xử lý nhanh một khối lượng công việc lớn. Nhưng càng dùng lâu, tôi càng thấy phần giá trị hơn lại nằm ở chỗ khác: AI có thể hỗ trợ tìm thông tin, đối chiếu, phản biện, phát hiện vấn đề và tổ chức lại quá trình tư duy trước khi đi đến một quyết định tác nghiệp.</p>
 <p class="body-p">Đó cũng là cách tôi hiện sử dụng AI trong phần lớn công việc báo chí.</p>
-<h3 class="subsection-title">1. Bắt đầu từ vấn đề công việc, không bắt đầu từ công nghệ</h3>
+<h3 id="1-b-t-u-t-v-n-c-ng-vi-c-kh-ng-b-t-u-t-c-ng-ngh" class="subsection-title">1. Bắt đầu từ vấn đề công việc, không bắt đầu từ công nghệ</h3>
 <p class="body-p">Tôi ít khi đặt câu hỏi theo kiểu “AI có thể giúp tôi việc gì?”. Thường tôi bắt đầu từ một khó khăn cụ thể trong công việc.</p>
 <p class="body-p">Ví dụ, trong một ngày có quá nhiều thông tin trên địa bàn, làm thế nào để biết vấn đề nào thực sự đáng chú ý? Một đề tài đang được nhiều báo cùng làm thì còn khoảng trống nào chưa được khai thác? Một bài có thông tin nhưng đọc vẫn nhạt thì nguyên nhân nằm ở dữ liệu, góc tiếp cận hay cách kể? Một chính sách mới ban hành có thể tạo ra thay đổi gì trong đời sống vài tuần hoặc vài tháng tới?</p>
 <p class="body-p">Khi câu hỏi xuất phát từ một tình huống thật, kết quả AI trả về thường hữu ích hơn nhiều so với những yêu cầu chung chung như “gợi ý đề tài hay” hoặc “hôm nay có gì đáng chú ý”.</p>
 <p class="body-p">Từ kinh nghiệm đó, tôi cho rằng AI chỉ thực sự phát huy tác dụng khi người sử dụng biết mình đang cần giải quyết vấn đề nào. Nếu đầu bài chưa rõ, AI thường chỉ giúp chúng ta tạo ra nhiều chữ hơn, chứ chưa chắc tạo ra thêm giá trị.</p>
 <p class="body-p">Điều này cũng khiến tôi thay đổi cách tiếp cận. Thay vì nghĩ trước xem nên sử dụng tính năng nào của AI, tôi xác định nút thắt trong công việc trước, sau đó mới xem AI có thể tham gia ở khâu nào. Có việc AI giải quyết tốt, có việc chỉ nên dùng để tham khảo, và cũng có việc không cần đến AI.</p>
-<h3 class="subsection-title">2. Giao vai trò cho AI và tạo cho nó đủ ngữ cảnh</h3>
+<h3 id="2-giao-vai-tr-cho-ai-v-t-o-cho-n-ng-c-nh" class="subsection-title">2. Giao vai trò cho AI và tạo cho nó đủ ngữ cảnh</h3>
 <p class="body-p">Một thay đổi khác mà tôi thấy có hiệu quả là không chỉ giao nhiệm vụ, mà xác định tương đối rõ vai trò của AI trong quy trình.</p>
 <p class="body-p">Chẳng hạn, thay vì yêu cầu “tổng hợp tin tức TPHCM”, tôi yêu cầu AI hoạt động như một hệ thống phát hiện sớm của tòa soạn: theo dõi các chuyển động về chính sách, đầu tư, hạ tầng, doanh nghiệp, việc làm và đời sống; sau đó tìm ra những dấu hiệu có khả năng phát triển thành đề tài.</p>
 <p class="body-p">Cách làm này buộc tôi phải xác định rõ hơn đầu vào và đầu ra: địa bàn nào cần theo dõi, nhóm vấn đề nào được ưu tiên, thông tin nào nên loại bỏ, tiêu chí nào để coi một tín hiệu là đáng chú ý và cuối cùng phóng viên có thể làm gì với thông tin đó.</p>
@@ -876,7 +920,7 @@
 <p class="body-p">Khi có lớp ngữ cảnh này, AI bớt trả lời theo kiến thức chung và có khả năng đặt thông tin mới vào đúng bối cảnh hơn. Nó cũng giúp giảm việc phải giải thích lại từ đầu sau mỗi lần sử dụng.</p>
 <p class="body-p">Tôi thấy đây là điểm khác biệt khá lớn giữa việc dùng một chatbot để hỏi từng việc rời rạc và việc xây một trợ lý thực sự cho công việc. Một trợ lý muốn làm việc tốt phải dần hiểu bối cảnh.</p>
 <p class="body-p">Đó cũng là lí do vì sao tôi tạo ra nhiều trợ lí GPT để chia sẻ với các phóng viên dùng chung, nhưng luôn yêu cầu mỗi người phải cá nhân hoá và tương tác nhiều để nó hiểu bối cảnh và mảng việc của từng người.</p>
-<h3 class="subsection-title">3. Quét rộng, nghiên cứu sâu, lọc mạnh và chú ý những dấu hiệu bất thường</h3>
+<h3 id="3-qu-t-r-ng-nghi-n-c-u-s-u-l-c-m-nh-v-ch-nh-ng-d-u-hi-u-b-t-th-ng" class="subsection-title">3. Quét rộng, nghiên cứu sâu, lọc mạnh và chú ý những dấu hiệu bất thường</h3>
 <p class="body-p">Một chức năng tôi sử dụng khá thường xuyên là nghiên cứu sâu của ChatGPT. Tôi thường dùng nó để tổng hợp tài liệu chuyên sâu trước khi bắt tay vào triển khai một ý tưởng lớn, ví dụ như tổ chức một hội thảo, một tọa đàm, một chuyên đề hay là một dự án. Tôi dùng nó để đọc hiểu bối cảnh, nắm bắt bức tranh toàn cảnh trước khi đưa ra quyết định tác nghiệp. Tôi không dùng nó cho mọi câu hỏi, mà chủ yếu dùng khi một vấn đề đòi hỏi phải gom nhiều nguồn, lần lại lịch sử, tìm dữ liệu nền hoặc kiểm tra một nhận định trước khi quyết định có nên phát triển thành đề tài hay không.</p>
 <p class="body-p">Tôi thấy chức năng này đặc biệt hiệu quả trong một số tình huống.</p>
 <p class="body-p">Thứ nhất là dựng nhanh hồ sơ nền cho một vấn đề. Trước khi đi sâu vào một dự án, doanh nghiệp, chính sách hay lĩnh vực mới, tôi có thể yêu cầu AI lần lại các văn bản, số liệu, mốc thời gian, phát biểu, thay đổi chính sách và những bài báo đã xuất hiện trước đó. Thay vì bắt đầu với vài kết quả tìm kiếm rời rạc, tôi có được một bức tranh tương đối có hệ thống để biết vấn đề đã đi đến đâu.</p>
@@ -903,7 +947,7 @@
 <p class="body-p">Tôi cũng tự đặt giới hạn cho chức năng này. Nghiên cứu sâu phù hợp với những vấn đề cần bề dày thông tin, nhiều nguồn và đối chiếu. Nó không nhất thiết là cách tốt nhất cho một tin nóng cần xác nhận ngay, một dữ kiện đơn lẻ có thể lấy trực tiếp từ nguồn chính thức, hay một câu hỏi chỉ cần câu trả lời ngắn.</p>
 <p class="body-p">Và quan trọng hơn, nghiên cứu sâu không thay thế kiểm chứng. AI có thể giúp tìm tài liệu, gom dữ liệu và chỉ ra những chỗ cần chú ý, nhưng nguồn nào đáng tin, số liệu nào còn hiệu lực, hai bộ dữ liệu có thực sự so sánh được hay không và thông tin nào đủ điều kiện để đưa lên báo vẫn phải do nhà báo kiểm tra.</p>
 <p class="body-p">Với tôi, giá trị lớn nhất của chức năng nghiên cứu sâu là rút ngắn rất nhiều thời gian từ lúc “chưa biết gì nhiều về vấn đề này” đến lúc “đã biết mình cần kiểm chứng điều gì”.</p>
-<h3 class="subsection-title">4. Phân biệt dữ kiện, tín hiệu và giả thuyết; sau đó mới đọc chéo quyết sách, dữ liệu và đời sống</h3>
+<h3 id="4-ph-n-bi-t-d-ki-n-t-n-hi-u-v-gi-thuy-t-sau-m-i-c-ch-o-quy-t-s-ch-d-li-u-v-i-s-ng" class="subsection-title">4. Phân biệt dữ kiện, tín hiệu và giả thuyết; sau đó mới đọc chéo quyết sách, dữ liệu và đời sống</h3>
 <p class="body-p">Đây là điểm tôi đặc biệt thận trọng khi dùng AI cho báo chí.</p>
 <p class="body-p">AI có khả năng kết nối các thông tin rời rạc và tạo ra một câu chuyện khá mạch lạc. Nhưng một câu chuyện nghe hợp lý không có nghĩa là đã đúng.</p>
 <p class="body-p">Vì vậy, tôi thường yêu cầu tách rõ ba lớp: dữ kiện đã được xác nhận; các dấu hiệu đang xuất hiện nhưng chưa đủ để kết luận; và giả thuyết hoặc suy luận được hình thành từ những dữ kiện đó.</p>
@@ -918,7 +962,7 @@
 <p class="body-p">Một chính sách được đánh giá là tạo thuận lợi cho doanh nghiệp nhưng doanh nghiệp vẫn gặp một nút thắt khác; một dự án được thúc đẩy rất mạnh nhưng giải ngân vẫn chậm; một khu vực tăng trưởng cao nhưng người lao động lại giảm thu nhập. Những khoảng cách như vậy thường là điểm bắt đầu của một đề tài báo chí.</p>
 <p class="body-p">AI khá hữu ích trong việc đặt những lớp thông tin vốn nằm ở nhiều nguồn khác nhau cạnh nhau. Nhưng việc giải thích khoảng cách đó vẫn cần thận trọng. Hai hiện tượng cùng xảy ra không có nghĩa chúng có quan hệ nhân quả.</p>
 <p class="body-p">Ở bước này, AI giúp đặt câu hỏi. Phóng viên vẫn phải tìm bằng chứng.</p>
-<h3 class="subsection-title">5. Đừng chỉ hỏi “có tin gì”, hãy tìm xem “cái gì đang thay đổi”</h3>
+<h3 id="5-ng-ch-h-i-c-tin-g-h-y-t-m-xem-c-i-g-ang-thay-i" class="subsection-title">5. Đừng chỉ hỏi “có tin gì”, hãy tìm xem “cái gì đang thay đổi”</h3>
 <p class="body-p">Đây là thay đổi đáng kể nhất trong cách tôi dùng AI.</p>
 <p class="body-p">Nếu chỉ yêu cầu AI tổng hợp tin tức, phần lớn những gì nhận được là những sự kiện đã xảy ra. Trong khi đó, với công việc báo chí, điều đáng quan tâm hơn nhiều khi là những chuyển động mới bắt đầu hình thành.</p>
 <p class="body-p">Tôi thường yêu cầu AI theo dõi sự thay đổi của một số nguồn lực: dòng tiền, đất đai, lao động, việc làm, hàng hóa, hạ tầng và quyền ra quyết định.</p>
@@ -935,7 +979,7 @@
 <p class="body-p">Có những vấn đề không nằm trong bản thân quyết định mà nằm ở tác động cấp hai hoặc cấp ba của nó.</p>
 <p class="body-p">AI có thể hỗ trợ đặt ra những khả năng như vậy. Tuy nhiên, chúng chỉ nên được coi là giả thuyết để phóng viên tiếp tục kiểm tra. Tôi không coi việc AI dự đoán được một hệ quả là bằng chứng cho thấy hệ quả đó sẽ xảy ra.</p>
 <p class="body-p">Giá trị của AI ở đây là mở rộng số câu hỏi có thể đặt ra, không phải trả lời thay thực tế.</p>
-<h3 class="subsection-title">6. Một ý tưởng chỉ có giá trị khi đi được tới tác nghiệp</h3>
+<h3 id="6-m-t-t-ng-ch-c-gi-tr-khi-i-c-t-i-t-c-nghi-p" class="subsection-title">6. Một ý tưởng chỉ có giá trị khi đi được tới tác nghiệp</h3>
 <p class="body-p">Tôi dần bỏ những gợi ý kiểu “nên khai thác sâu” hoặc “có thể phỏng vấn chuyên gia”, vì chúng chưa đủ để tổ chức tác nghiệp.</p>
 <p class="body-p">Một gợi ý chỉ thực sự có giá trị khi có thể trả lời tiếp: cần gọi ai, tới đâu, tìm số liệu nào, hỏi cơ quan nào, gặp nhóm người nào, quan sát điều gì tại hiện trường và thông tin nào cần xác minh trước khi viết.</p>
 <p class="body-p">Ở điểm này, AI có thể hỗ trợ khá tốt.</p>
@@ -948,7 +992,7 @@
 <p class="body-p">Có những lúc việc đúng nhất là đóng AI lại, gọi điện cho nguồn tin hoặc đi hiện trường.</p>
 <p class="body-p">Tôi cho rằng đây cũng là một kỹ năng quan trọng. Nếu không có điều kiện dừng, AI có thể khiến người sử dụng sa vào quá trình phân tích rất dài mà không chuyển được sang hành động.</p>
 <p class="body-p">AI tốt nhất khi nó đưa phóng viên tới gần hiện trường hơn, không phải giữ phóng viên lâu hơn trước màn hình.</p>
-<h3 class="subsection-title">7. Dùng AI như một đối thủ phản biện, không phải người đồng tình</h3>
+<h3 id="7-d-ng-ai-nh-m-t-i-th-ph-n-bi-n-kh-ng-ph-i-ng-i-ng-t-nh" class="subsection-title">7. Dùng AI như một đối thủ phản biện, không phải người đồng tình</h3>
 <p class="body-p">Một kinh nghiệm khác là không chỉ yêu cầu AI đưa ra giả thuyết, mà yêu cầu nó tìm cách bác bỏ giả thuyết đó.</p>
 <p class="body-p">Nếu nhận định rằng một ngành đang phục hồi, dữ liệu nào có thể chứng minh điều ngược lại?</p>
 <p class="body-p">Nếu cho rằng một chính sách đang tạo hiệu quả, nhóm nào có thể chưa được hưởng lợi?</p>
@@ -964,7 +1008,7 @@
 <p class="body-p">Độc giả hỏi: chuyện này liên quan gì tới tôi, vì sao tôi phải dành thời gian đọc?</p>
 <p class="body-p">Cách sử dụng nhiều góc nhìn không khiến AI trở thành một “hội đồng chuyên gia”, nhưng nó có thể giúp lộ ra những điểm mà một lượt hỏi duy nhất dễ bỏ qua.</p>
 <p class="body-p">Tôi thấy đây là một trong những cách dùng AI hữu ích nhất, vì con người rất dễ yêu chính giả thuyết mình đã nghĩ ra. AI, nếu được yêu cầu đúng, có thể làm nhiệm vụ ngược lại: tìm chỗ giả thuyết đó dễ đổ nhất.</p>
-<h3 class="subsection-title">8. Dùng AI trước khi viết, không bắt đầu từ tiêu đề</h3>
+<h3 id="8-d-ng-ai-tr-c-khi-vi-t-kh-ng-b-t-u-t-ti-u" class="subsection-title">8. Dùng AI trước khi viết, không bắt đầu từ tiêu đề</h3>
 <p class="body-p">Trong thực tế, tôi sử dụng AI khá nhiều ở khâu trước khi viết bài.</p>
 <p class="body-p">Khi phóng viên đề xuất một góc, AI có thể giúp rà xem vấn đề đã được khai thác nhiều chưa, thông tin mới nằm ở đâu, bài còn thiếu dữ liệu gì, nhân vật nào cần bổ sung, nhận định nào chưa có đủ căn cứ hoặc tiêu đề có đang đi quá xa so với nội dung hay không.</p>
 <p class="body-p">Việc này giúp loại bớt những đề tài tưởng hay nhưng khi triển khai lại không có đủ thông tin mới.</p>
@@ -978,7 +1022,7 @@
 <p class="body-p">Vì vậy, nếu sử dụng AI để tối ưu hiệu quả nội dung, tôi thường bắt đầu từ đề tài chứ không bắt đầu từ tiêu đề.</p>
 <p class="body-p">Đặt tiêu đề là một khâu AI có thể làm rất nhanh. Nhưng tìm được lý do thực sự khiến người đọc cần bài báo đó mới là phần khó hơn.</p>
 <p class="body-p">Nếu phải lựa chọn, tôi ưu tiên dùng AI để tìm ra “vì sao bài này đáng tồn tại” trước khi yêu cầu nó nghĩ “bài này nên đặt tên gì”.</p>
-<h3 class="subsection-title">9. Đầu ra đầu tiên hiếm khi là đầu ra cuối cùng</h3>
+<h3 id="9-u-ra-u-ti-n-hi-m-khi-l-u-ra-cu-i-c-ng" class="subsection-title">9. Đầu ra đầu tiên hiếm khi là đầu ra cuối cùng</h3>
 <p class="body-p">Tôi không coi câu trả lời đầu tiên của AI là kết quả hoàn chỉnh.</p>
 <p class="body-p">Trong nhiều trường hợp, tôi tiếp tục yêu cầu nó nhìn lại từ một khoảng cách khác: phần này quá phổ biến, vấn đề này báo khác đã làm, có điểm mù nào chưa được khai thác, có thể lùi xa hơn để nhìn xu hướng hay tiến lại gần để tìm một trường hợp cụ thể hơn không.</p>
 <p class="body-p">Quá trình này khá giống biên tập.</p>
@@ -993,7 +1037,7 @@
 <p class="body-p">Có những prompt rất dài nhưng người sử dụng chưa xác định rõ mình muốn gì. Ngược lại, một câu phản hồi ngắn nhưng chỉ đúng điểm yếu của đầu ra có thể khiến kết quả thay đổi rất mạnh.</p>
 <p class="body-p">Theo tôi, kỹ năng quan trọng hơn là đọc đầu ra, biết điều gì chưa ổn, vì sao chưa ổn và cần đổi góc nhìn nào tiếp theo.</p>
 <p class="body-p">Đó là kỹ năng khá gần với biên tập và tư duy nghề nghiệp hơn là kỹ năng công nghệ.</p>
-<h3 class="subsection-title">10. Từ prompt cá nhân đến hệ thống tri thức của tòa soạn</h3>
+<h3 id="10-t-prompt-c-nh-n-n-h-th-ng-tri-th-c-c-a-t-a-so-n" class="subsection-title">10. Từ prompt cá nhân đến hệ thống tri thức của tòa soạn</h3>
 <p class="body-p">Khi một việc được thực hiện hằng ngày hoặc hằng tuần, tôi thường tìm cách chuyển nó từ một chuỗi prompt rời rạc thành một quy trình.</p>
 <p class="body-p">Chẳng hạn, việc theo dõi thông tin địa bàn có thể được chuẩn hóa thành các tầng quét, bộ tiêu chí lựa chọn, những câu hỏi cần kiểm tra và cấu trúc đầu ra tương đối ổn định.</p>
 <p class="body-p">Với những quy trình phức tạp hơn, có thể chia thành nhiều bước: nghiên cứu, xây cấu trúc, viết, kiểm chứng, phản biện, kiểm tra chất lượng và biên tập cuối.</p>
@@ -1014,7 +1058,7 @@
 <p class="body-p">Trong công việc báo chí, tôi vì thế quan tâm nhiều hơn đến chất lượng quyết định: chúng ta có phát hiện vấn đề sớm hơn không, có giảm sai sót không, có đặt được câu hỏi tốt hơn không, có loại được những việc không đáng làm không và có tạo ra thêm thông tin mới không.</p>
 <p class="body-p">Với người quản lý, AI còn có một giá trị khác: giúp nhìn công việc ở quy mô lớn hơn. Khi dữ liệu về đề tài, hiệu suất, nội dung đã làm, lĩnh vực đang bỏ trống hoặc nguồn lực của phóng viên được tổ chức tốt, AI có thể hỗ trợ phát hiện những vấn đề mà nhìn từng bài riêng lẻ rất khó thấy.</p>
 <p class="body-p">Ở cấp độ này, AI không còn chỉ là công cụ của từng phóng viên. Nó bắt đầu trở thành một phần của hệ thống tri thức và hệ thống điều hành.</p>
-<h3 class="subsection-title">11. Ranh giới cuối cùng vẫn là trách nhiệm nghề nghiệp của con người</h3>
+<h3 id="11-ranh-gi-i-cu-i-c-ng-v-n-l-tr-ch-nhi-m-ngh-nghi-p-c-a-con-ng-i" class="subsection-title">11. Ranh giới cuối cùng vẫn là trách nhiệm nghề nghiệp của con người</h3>
 <p class="body-p">Dù sử dụng AI khá sâu trong công việc, tôi không coi AI là chủ thể có thể thay thế quyết định nghề nghiệp.</p>
 <p class="body-p">Có những việc cuối cùng vẫn phải do nhà báo và tòa soạn chịu trách nhiệm: xác định một thông tin đã đủ căn cứ để công bố hay chưa, đánh giá độ tin cậy của nguồn tin, cân nhắc tác động của việc xuất bản, bảo vệ nhân vật và chịu trách nhiệm với từng thông tin đã đăng.</p>
 <p class="body-p">AI có thể hỗ trợ tìm tài liệu, phát hiện mâu thuẫn, gợi ý giả thuyết hoặc chỉ ra điểm còn thiếu.</p>
@@ -1040,7 +1084,7 @@
         <section id="part2_intro" class="book-section">
             <div class="section-indicator">📚 PHẦN II: 15 CHƯƠNG CHI TIẾT</div>
             <h1 class="chapter-title">PHẦN II: 15 CHƯƠNG CHI TIẾT</h1>
-<h2 class="section-title">15 CHƯƠNG NGHIỆP VỤ THỰC CHIẾN TÒA SOẠN</h2>
+<h2 id="15-ch-ng-nghi-p-v-th-c-chi-n-t-a-so-n" class="section-title">15 CHƯƠNG NGHIỆP VỤ THỰC CHIẾN TÒA SOẠN</h2>
 <p class="body-p"><em>Cẩm nang Nghiệp vụ Dành cho Phóng viên — Văn phòng Đại diện tại TP. Hồ Chí Minh</em></p>
 <p class="body-p"><em>Đồng bộ Luật Báo chí số 126/2025/QH15 & Nghị định 237/2026/NĐ-CP</em></p>
 <hr class="divider"/>
@@ -1052,19 +1096,19 @@
             <div class="section-indicator">📖 Chương 1: Hiểu Đúng Bản Chất AI</div>
             <h1 class="chapter-title">CHƯƠNG 1: HIỂU ĐÚNG BẢN CHẤT AI — RANH GIỚI GIỮA CÔNG NGHỆ VÀ TRÁCH NHIỆM BÁO CHÍ</h1>
 <blockquote class="quote-card"><p><em>“Trí tuệ nhân tạo có thể tạo ra những câu chữ trôi chảy trong vài giây, nhưng sự thật báo chí chỉ được xác lập từ thực địa, tài liệu đối soát và trách nhiệm của con người.”</em></p></blockquote>
-<h3 class="subsection-title">Bài học từ một nhân vật không có thật</h3>
+<h3 id="b-i-h-c-t-m-t-nh-n-v-t-kh-ng-c-th-t" class="subsection-title">Bài học từ một nhân vật không có thật</h3>
 <p class="body-p">Trong khung giờ xử lý tin bài buổi chiều tại văn phòng, một phóng viên nhận được yêu cầu viết gấp bài phân tích về tình hình nợ bảo hiểm xã hội và chế độ của người lao động tại một nhóm doanh nghiệp trên địa bàn quản lý. Do thời gian gấp rút, phóng viên đã dùng chatbot AI để phác thảo nội dung với câu lệnh chung chung.</p>
 <p class="body-p">Chỉ sau ít phút, AI trả về một bản thảo mạch lạc, xúc động, trích dẫn phát biểu của một nhân vật có tên và chức danh cụ thể: <em>"ông Nguyễn Văn Hùng - Phó Giám đốc Bảo hiểm Xã hội tỉnh"</em>, kèm theo số liệu chi tiết về hàng trăm doanh nghiệp vi phạm và phản ánh của người lao động.</p>
 <p class="body-p">Khi bản thảo được rà soát trước giờ xuất bản, Ban Thư ký Tòa soạn đã liên hệ đối soát với cơ quan chức năng và phát hiện: Cơ quan Bảo hiểm Xã hội tại địa phương vào thời điểm đó không có cán bộ nào mang tên và chức vụ như trên. Khi được hỏi lại, công cụ AI xác nhận rằng tên nhân vật và lời phát biểu chỉ là nội dung giả định do mô hình tự tạo ra nhằm tăng tính thuyết phục cho bài viết.</p>
 <p class="body-p">Tình huống này cho thấy một rủi ro hiện hữu: Nếu thiếu khâu thẩm định độc lập, thông tin giả định từ AI có thể lọt qua khâu biên tập, dẫn đến vi phạm nghiêm trọng quy định về thông tin sai sự thật theo Điều 9 Luật Báo chí số 126/2025/QH15 và các chế tài xử phạt hành chính tại Nghị định 119/2020/NĐ-CP, ảnh hưởng trực tiếp đến uy tín của cơ quan báo chí.</p>
-<h3 class="subsection-title">Bản chất kỹ thuật của AI dưới góc nhìn người làm báo</h3>
+<h3 id="b-n-ch-t-k-thu-t-c-a-ai-d-i-g-c-nh-n-ng-i-l-m-b-o" class="subsection-title">Bản chất kỹ thuật của AI dưới góc nhìn người làm báo</h3>
 <p class="body-p">Để sử dụng công nghệ một cách an toàn và chuẩn mực, người làm báo cần nắm vững bản chất cốt lõi:</p>
 <ol class="content-list numbered">
 <li><strong>Cơ chế dự đoán ngôn ngữ theo xác suất:</strong> Các mô hình ngôn ngữ lớn (LLM) như ChatGPT, Gemini hay Claude không có ý thức và không tự tìm kiếm sự thật ngoài đời thực. Về bản chất, chúng được huấn luyện để dự đoán từ ngữ tiếp theo có xác suất xuất hiện cao nhất dựa trên hàng tỷ trang văn bản đã học.</li>
 <li><strong>Nguồn gốc của hiện tượng ảo giác (Hallucination):</strong> Khi người dùng đưa ra yêu cầu nhưng không cung cấp dữ liệu gốc kẹp kèm, mô hình sẽ tự động kết nối các từ ngữ nghe có vẻ hợp lý về mặt ngữ pháp để hoàn chỉnh câu trả lời. Điều này tạo ra những thông tin nghe rất đĩnh đạc nhưng hoàn toàn không có thực.</li>
 <li><strong>Nguyên tắc tác nghiệp:</strong> Trí tuệ nhân tạo là <strong>công cụ xử lý ngôn ngữ và phụ trợ kỹ thuật</strong>, tuyệt đối không thể coi AI là <strong>nguồn tin độc lập</strong> trong hoạt động báo chí.</li>
 </ol>
-<h3 class="subsection-title">Bản đồ Hệ sinh thái Công cụ AI thiết yếu cho phóng viên</h3>
+<h3 id="b-n-h-sinh-th-i-c-ng-c-ai-thi-t-y-u-cho-ph-ng-vi-n" class="subsection-title">Bản đồ Hệ sinh thái Công cụ AI thiết yếu cho phóng viên</h3>
 <p class="body-p">Trong tác nghiệp hàng ngày, phóng viên không nên dùng một công cụ duy nhất cho mọi việc. Thay vào đó, mỗi công đoạn cần một công cụ chuyên biệt tối ưu:</p>
 
         <div class="table-container">
@@ -1117,7 +1161,7 @@
 <td data-label="LƯU Ý BẢO MẬT &amp; CHI PHÍ"><span class="cell-label">LƯU Ý BẢO MẬT & CHI PHÍ: </span><span class="cell-value">Ứng dụng di động cài trên điện thoại thông minh, hoạt động ngoại tuyến rất tốt.</span></td>
 </tr>
 </tbody></table></div>
-<h3 class="subsection-title">Phân định trách nhiệm: Phần việc của máy móc và vai trò của nhà báo</h3>
+<h3 id="ph-n-nh-tr-ch-nhi-m-ph-n-vi-c-c-a-m-y-m-c-v-vai-tr-c-a-nh-b-o" class="subsection-title">Phân định trách nhiệm: Phần việc của máy móc và vai trò của nhà báo</h3>
 
         <div class="table-container">
             <div class="table-header-bar">
@@ -1147,7 +1191,7 @@
 <td data-label="RANH GIỚI BẮT BUỘC CỦA NHÀ BÁO"><span class="cell-label">RANH GIỚI BẮT BUỘC CỦA NHÀ BÁO: </span><span class="cell-value">• <strong>Độc quyền của con người:</strong> Trực tiếp phỏng vấn nhân chứng, tiếp nhận đơn thư, đánh giá đạo đức, thẩm định pháp lý và quyết định xuất bản bài báo.</span></td>
 </tr>
 </tbody></table></div>
-<h3 class="subsection-title">Hướng dẫn thực hành: Khóa chốt an toàn khi xử lý văn bản</h3>
+<h3 id="h-ng-d-n-th-c-h-nh-kh-a-ch-t-an-to-n-khi-x-l-v-n-b-n" class="subsection-title">Hướng dẫn thực hành: Khóa chốt an toàn khi xử lý văn bản</h3>
 <p class="body-p">Mỗi khi yêu cầu AI đọc và tóm tắt một văn bản hành chính, phóng viên hãy bổ sung các ràng buộc kỷ luật sau vào câu lệnh:</p>
 
         <div class="prompt-box">
@@ -1162,7 +1206,7 @@
 - Với mỗi số liệu hoặc kết luận được trích xuất, bắt buộc ghi chú rõ số trang tương ứng trong tài liệu gốc.</code></pre>
         </div>
         
-<h3 class="subsection-title">Nguyên tắc ghi nhớ</h3>
+<h3 id="nguy-n-t-c-ghi-nh" class="subsection-title">Nguyên tắc ghi nhớ</h3>
 <ul class="content-list">
 <li>Pháp luật hiện hành điều chỉnh trách nhiệm của cơ quan báo chí và nhà báo đứng tên tác phẩm, không điều chỉnh công cụ kỹ thuật.</li>
 <li>Khi một bài viết có sai sót dữ kiện, người chịu trách nhiệm trước pháp luật và bạn đọc luôn là phóng viên và Ban Biên tập.</li>
@@ -1175,7 +1219,7 @@
             <div class="section-indicator">📖 Chương 2: Thiết Kế Nhiệm Vụ Cho AI</div>
             <h1 class="chapter-title">CHƯƠNG 2: THIẾT KẾ NHIỆM VỤ CHO AI — TỪ CÂU LỆNH VỤN VẶT ĐẾN YÊU CẦU TÁC NGHIỆP CHUẨN MỰC</h1>
 <blockquote class="quote-card"><p><em>“Hiệu quả hỗ trợ của AI phụ thuộc trực tiếp vào mức độ rõ ràng của bối cảnh, tính cụ thể của dữ liệu đầu vào và các tiêu chí chuẩn mực mà phóng viên thiết lập.”</em></p></blockquote>
-<h3 class="subsection-title">Sự khác biệt giữa hai cách tiếp cận</h3>
+<h3 id="s-kh-c-bi-t-gi-a-hai-c-ch-ti-p-c-n" class="subsection-title">Sự khác biệt giữa hai cách tiếp cận</h3>
 <p class="body-p">Cùng xử lý hồ sơ một vụ việc chậm đóng bảo hiểm xã hội kéo dài tại một doanh nghiệp lớn trên địa bàn, hai cách giao nhiệm vụ cho kết quả hoàn toàn khác nhau:</p>
 <ul class="content-list">
 <li><strong>Cách tiếp cận thứ nhất (Câu lệnh sơ sài):</strong> Phóng viên yêu cầu chung chung: <em>“Viết cho tôi một bài báo điều tra 1.000 chữ về doanh nghiệp nợ tiền bảo hiểm của người lao động, yêu cầu giọng văn bức xúc và lên án.”</em></li>
@@ -1185,7 +1229,7 @@
 <li><strong>Cách tiếp cận thứ hai (Thiết kế nhiệm vụ có cấu trúc):</strong> Phóng viên đính kèm biên bản thanh tra của cơ quan quản lý lao động địa phương, quy định rõ vai trò của AI là chuyên viên rà soát pháp lý, yêu cầu lập bảng đối chiếu 3 mốc thời gian vi phạm, tổng số tiền nợ đọng, và dự thảo Sapo 3 dòng nêu bật con số cốt tử.</li>
 </ul>
 <p class="body-p">$	o$ <strong>Kết quả:</strong> Một bản tóm tắt mạch lạc, chuẩn xác từng số liệu, làm nền tảng vững chắc để phóng viên hoàn thiện bài viết nhanh chóng và đúng quy chuẩn nghiệp vụ.</p>
-<h3 class="subsection-title">Cấu trúc 4 thành tố của một yêu cầu tác nghiệp chuẩn mực</h3>
+<h3 id="c-u-tr-c-4-th-nh-t-c-a-m-t-y-u-c-u-t-c-nghi-p-chu-n-m-c" class="subsection-title">Cấu trúc 4 thành tố của một yêu cầu tác nghiệp chuẩn mực</h3>
 <p class="body-p">Thay vì gõ những câu lệnh ngẫu hứng, người làm báo nên áp dụng cấu trúc 4 thành tố rõ ràng:</p>
 <ol class="content-list numbered">
 <li><strong>Xác định vai trò chuyên môn (Role):</strong> Định vị góc nhìn cho mô hình (ví dụ: Chuyên viên phân tích pháp lý, Biên tập viên rà soát lỗi văn bản, Thư ký tòa soạn đối soát số liệu).</li>
@@ -1193,7 +1237,7 @@
 <li><strong>Quy trình xử lý tuần tự (Process):</strong> Nêu rõ từng bước cần thực hiện (ví dụ: Bước 1 lọc dữ liệu $	o$ Bước 2 tìm điểm mâu thuẫn $	o$ Bước 3 lập bảng đối chiếu).</li>
 <li><strong>Tiêu chuẩn kiểm soát chất lượng & Lệnh phủ định (Constraints & Negative Prompts):</strong> Đặt ra các ranh giới nghiêm ngặt: Tránh từ ngữ sáo rỗng, khống chế độ dài, cấm bịa đặt, yêu cầu dẫn chứng số trang.</li>
 </ol>
-<h3 class="subsection-title">Bảng đối chiếu: Yêu cầu sơ sài và Yêu cầu có cấu trúc chuẩn mực</h3>
+<h3 id="b-ng-i-chi-u-y-u-c-u-s-s-i-v-y-u-c-u-c-c-u-tr-c-chu-n-m-c" class="subsection-title">Bảng đối chiếu: Yêu cầu sơ sài và Yêu cầu có cấu trúc chuẩn mực</h3>
 
         <div class="table-container">
             <div class="table-header-bar">
@@ -1223,7 +1267,7 @@
 <td data-label="✅ YÊU CẦU CÓ CẤU TRÚC (CHUẨN XÁC &amp; HIỆU QUẢ)"><span class="cell-label">✅ YÊU CẦU CÓ CẤU TRÚC (CHUẨN XÁC & HIỆU QUẢ): </span><span class="cell-value"><em>“Dựa vào thông cáo báo chí đính kèm của Sở Giao thông Vận tải:<br>1. Rút trích 5W+1H: Việc gì xảy ra, ở đâu, khi nào, ảnh hưởng đến ai, giải pháp là gì.<br>2. Viết tin ngắn 300 từ: Tít dưới 70 ký tự, Sapo 2 câu nêu ngay phương án phân luồng mới, thân bài 3 đoạn ngắn.<br>Ràng buộc: Giữ nguyên các mốc giờ và lộ trình phân luồng cụ thể.”</em></span></td>
 </tr>
 </tbody></table></div>
-<h3 class="subsection-title">Ba mẫu Prompt thực chiến sao chép dùng ngay</h3>
+<h3 id="ba-m-u-prompt-th-c-chi-n-sao-ch-p-d-ng-ngay" class="subsection-title">Ba mẫu Prompt thực chiến sao chép dùng ngay</h3>
 <h4 class="minor-title">Mẫu 1: Xử lý thông cáo báo chí hoặc văn bản chỉ đạo thành tin ngắn thời sự (300 từ)</h4>
 
         <div class="prompt-box">
@@ -1283,7 +1327,7 @@ Xây dựng khung dàn ý tuyến bài phóng sự phản ánh 3 kỳ:
 - Mỗi kỳ phải xác định rõ: 1 nhân vật trung tâm, 2 tài liệu chứng minh bắt buộc, 1 cơ quan cần đối chất trực tiếp.</code></pre>
         </div>
         
-<h3 class="subsection-title">Quy trình 3 bước thao tác chuẩn trên máy tính</h3>
+<h3 id="quy-tr-nh-3-b-c-thao-t-c-chu-n-tr-n-m-y-t-nh" class="subsection-title">Quy trình 3 bước thao tác chuẩn trên máy tính</h3>
 <ul class="content-list">
 <li><strong>Bước 1: Chuẩn bị tài liệu nguồn.</strong> Chuyển đổi hồ sơ sang dạng văn bản sạch, che giấu các thông tin định danh cá nhân nhạy cảm (PII) trước khi nạp vào hệ thống.</li>
 <li><strong>Bước 2: Giao việc có kiểm soát.</strong> Chọn công cụ phù hợp (NotebookLM cho tài liệu dày, Claude/ChatGPT cho dàn ý và logic), nhập yêu cầu có cấu trúc với đầy đủ 4 thành tố.</li>
@@ -1296,11 +1340,11 @@ Xây dựng khung dàn ý tuyến bài phóng sự phản ánh 3 kỳ:
             <div class="section-indicator">📖 Chương 3: Kiểm Chứng Dữ Kiện & Ngăn Ảo Giác</div>
             <h1 class="chapter-title">CHƯƠNG 3: KIỂM CHỨNG DỮ KIỆN & NGĂN NGỪA ẢO GIÁC AI</h1>
 <blockquote class="quote-card"><p><em>“Trong kỷ luật làm báo, một dữ kiện chỉ có giá trị khi được bảo chứng bởi tài liệu gốc có thẩm quyền hoặc nhân chứng thực tế tại hiện trường.”</em></p></blockquote>
-<h3 class="subsection-title">Bài học từ văn bản quy phạm pháp luật không tồn tại</h3>
+<h3 id="b-i-h-c-t-v-n-b-n-quy-ph-m-ph-p-lu-t-kh-ng-t-n-t-i" class="subsection-title">Bài học từ văn bản quy phạm pháp luật không tồn tại</h3>
 <p class="body-p">Trong một đợt biên tập chuyên trang tư vấn pháp luật, một bài viết cộng tác gửi về viện dẫn điều khoản rất cụ thể: <em>"Căn cứ Điều 15 Nghị định số 218/2026/NĐ-CP của Chính phủ về chính sách hỗ trợ bổ sung cho người lao động mất việc làm..."</em>. Nội dung trích dẫn rất phù hợp với nguyện vọng của người dân và có số hiệu văn bản rõ ràng.</p>
 <p class="body-p">Tuy nhiên, khi đối soát trên Cơ sở Dữ liệu Quốc gia về Văn bản Pháp luật (<code class="inline-code">vbpl.vn</code>), ban biên tập nhận thấy không có nghị định nào mang số hiệu trên. Tác giả sau đó giải thích rằng văn bản này do công cụ AI tự trích dẫn khi được yêu cầu tổng hợp các chính sách mới.</p>
 <p class="body-p">Đây là một ví dụ điển hình về việc AI tự tạo ra các trích dẫn pháp lý giả định (Fabricated Citations) khi cố gắng đáp ứng yêu cầu của người dùng. Nếu nội dung này được đăng tải, cơ quan báo chí không chỉ phải cải chính thông tin mà còn có thể gây hiểu lầm trên diện rộng đối với xã hội.</p>
-<h3 class="subsection-title">Quy trình 4 bước kiểm chứng chéo (Reverse Verification)</h3>
+<h3 id="quy-tr-nh-4-b-c-ki-m-ch-ng-ch-o-reverse-verification" class="subsection-title">Quy trình 4 bước kiểm chứng chéo (Reverse Verification)</h3>
 <p class="body-p">Để ngăn chặn hoàn toàn nguy cơ lọt lưới thông tin giả mạo từ AI, phóng viên cần thực hiện nghiêm túc quy trình 4 bước:</p>
 <ol class="content-list numbered">
 <li><strong>Bóc tách mệnh đề dữ kiện (Claim Extraction):</strong> Đánh dấu toàn bộ các danh từ riêng, chức danh cán bộ, số hiệu công văn, điều khoản luật, số liệu phần trăm và phát ngôn trích dẫn trong ngoặc kép.</li>
@@ -1308,7 +1352,7 @@ Xây dựng khung dàn ý tuyến bài phóng sự phản ánh 3 kỳ:
 <li><strong>Đối soát trực tiếp 1-1 (Direct Fact-Checking):</strong> Mở tài liệu gốc và so sánh trực tiếp từng con số, từng câu chữ với nội dung AI đã xử lý.</li>
 <li><strong>Loại bỏ thông tin không thể kiểm chứng:</strong> Bất kỳ chi tiết nào không tìm thấy nguồn gốc xác thực đều phải kiên quyết loại bỏ khỏi bài viết.</li>
 </ol>
-<h3 class="subsection-title">Bộ công cụ đối soát công quyền trực tuyến dành cho phóng viên</h3>
+<h3 id="b-c-ng-c-i-so-t-c-ng-quy-n-tr-c-tuy-n-d-nh-cho-ph-ng-vi-n" class="subsection-title">Bộ công cụ đối soát công quyền trực tuyến dành cho phóng viên</h3>
 
         <div class="table-container">
             <div class="table-header-bar">
@@ -1360,13 +1404,13 @@ Xây dựng khung dàn ý tuyến bài phóng sự phản ánh 3 kỳ:
 <td data-label="CÁCH TRA CỨU CHUẨN XÁC"><span class="cell-label">CÁCH TRA CỨU CHUẨN XÁC: </span><span class="cell-value">Tra mã định danh bên mời thầu, giá gói thầu, danh sách nhà thầu trúng thầu và tỷ lệ tiết kiệm ngân sách.</span></td>
 </tr>
 </tbody></table></div>
-<h3 class="subsection-title">Công cụ kiểm chứng hình ảnh và video thực địa</h3>
+<h3 id="c-ng-c-ki-m-ch-ng-h-nh-nh-v-video-th-c-a" class="subsection-title">Công cụ kiểm chứng hình ảnh và video thực địa</h3>
 <p class="body-p">Khi tiếp nhận hình ảnh hoặc video từ mạng xã hội hoặc nguồn tin độc giả gửi về:</p>
 <ol class="content-list numbered">
 <li><strong>Google Lens & TinEye (<code class="inline-code">tineye.com</code>):</strong> Tải ảnh lên để tìm kiếm ngược (Reverse Image Search), kiểm tra xem bức ảnh này đã từng xuất hiện trên mạng từ những năm trước hay chưa, tránh bị đánh lừa bởi ảnh cũ đưa tin mới.</li>
 <li><strong>InVID WeVerify (Fake News Debunker Extension):</strong> Tiện ích mở rộng miễn phí chuyên dùng cho phóng viên điều tra, giúp cắt nhỏ video thành từng khung hình chính (keyframes) để tìm kiếm nguồn gốc video và phát hiện can thiệp kỹ thuật số.</li>
 </ol>
-<h3 class="subsection-title">Lệnh mẫu hỗ trợ bóc tách mệnh đề dữ kiện</h3>
+<h3 id="l-nh-m-u-h-tr-b-c-t-ch-m-nh-d-ki-n" class="subsection-title">Lệnh mẫu hỗ trợ bóc tách mệnh đề dữ kiện</h3>
 <p class="body-p">Trước khi gửi bài duyệt, phóng viên có thể dùng chính AI để tự rà soát lại các điểm cần kiểm chứng bằng mẫu lệnh sau:</p>
 
         <div class="prompt-box">
@@ -1385,7 +1429,7 @@ Hãy đóng vai trò là Biên tập viên Kiểm chứng Dữ liệu của Tòa
 [Dán bản thảo của bạn vào đây]</code></pre>
         </div>
         
-<h3 class="subsection-title">Ranh giới an toàn nghề nghiệp</h3>
+<h3 id="ranh-gi-i-an-to-n-ngh-nghi-p" class="subsection-title">Ranh giới an toàn nghề nghiệp</h3>
 <ul class="content-list">
 <li>Uy tín của người làm báo được xây dựng trong nhiều năm nhưng có thể bị tổn hại bởi một chi tiết sai sót thiếu kiểm chứng.</li>
 <li>Luôn giữ thái độ cẩn trọng nghề nghiệp: Mọi phát ngôn trực tiếp và số liệu thống kê bắt buộc phải có chứng cứ lưu trữ hợp pháp trong hồ sơ tác nghiệp của phóng viên.</li>
@@ -1397,7 +1441,7 @@ Hãy đóng vai trò là Biên tập viên Kiểm chứng Dữ liệu của Tòa
             <div class="section-indicator">📖 Chương 4: AI Radar Săn Đề Tài</div>
             <h1 class="chapter-title">CHƯƠNG 4: AI RADAR SĂN ĐỀ TÀI — PHÁT HIỆN TÍN HIỆU SỚM TỪ ĐỜI SỐNG DÂN SINH</h1>
 <blockquote class="quote-card"><p><em>“Một đề tài báo chí xuất sắc thường bắt đầu từ những phản ánh đời thường của người dân, được phát hiện sớm và xác minh thấu đáo tại thực địa.”</em></p></blockquote>
-<h3 class="subsection-title">Chủ động nắm bắt mạch sống đời thường</h3>
+<h3 id="ch-ng-n-m-b-t-m-ch-s-ng-i-th-ng" class="subsection-title">Chủ động nắm bắt mạch sống đời thường</h3>
 <p class="body-p">Trong môi trường truyền thông số, thông tin dân sinh, biến động thị trường và phản ánh của người dân xuất hiện liên tục trên cổng dịch vụ công trực tuyến, cổng thông tin 1022, các diễn đàn trao đổi cộng đồng và mạng xã hội. Một phóng viên theo dõi địa bàn hoặc chuyên mảng khó có thể đọc thủ công hàng nghìn lượt phản ánh mỗi ngày.</p>
 <p class="body-p">Việc ứng dụng công nghệ xử lý ngôn ngữ tự nhiên kết hợp các công cụ tự động hóa cho phép phóng viên xây dựng một chiếc "Radar thông tin":</p>
 <ul class="content-list">
@@ -1405,7 +1449,7 @@ Hãy đóng vai trò là Biên tập viên Kiểm chứng Dữ liệu của Tòa
 <li><strong>Lọc sạch tạp âm:</strong> Tự động loại bỏ các mẩu tin quảng cáo, rao vặt bất động sản, tin bán hàng đa cấp hoặc tin đồn vô căn cứ, giữ lại phản ánh thực chất của người dân.</li>
 <li><strong>Kích hoạt tác nghiệp thực tế:</strong> Cảnh báo từ công nghệ chỉ đóng vai trò là gợi ý ban đầu. Phóng viên trực tiếp xuống cơ sở, gặp gỡ nhân vật, đối chiếu với cơ quan chức năng để tìm hiểu bản chất sự việc trước khi đề xuất tuyến bài.</li>
 </ul>
-<h3 class="subsection-title">Hộp công cụ thực chiến: Thiết lập hệ thống Rada săn tin 24/7</h3>
+<h3 id="h-p-c-ng-c-th-c-chi-n-thi-t-l-p-h-th-ng-rada-s-n-tin-24-7" class="subsection-title">Hộp công cụ thực chiến: Thiết lập hệ thống Rada săn tin 24/7</h3>
 
         <div class="table-container">
             <div class="table-header-bar">
@@ -1439,7 +1483,7 @@ Hãy đóng vai trò là Biên tập viên Kiểm chứng Dữ liệu của Tòa
 <td data-label="HƯỚNG DẪN THỰC CHIẾN TỪNG BƯỚC"><span class="cell-label">HƯỚNG DẪN THỰC CHIẾN TỪNG BƯỚC: </span><span class="cell-value"><strong>Bước 1:</strong> Nhập câu hỏi điều tra xu hướng: <em>"Các vấn đề nổi cộm về trật tự xây dựng tại [Địa bàn] trong 3 tháng qua là gì?"</em>.<br><strong>Bước 2:</strong> Yêu cầu lọc theo nguồn báo chí và văn bản chính thức.<br><strong>Bước 3:</strong> Nhấp trực tiếp vào link tham chiếu để kiểm tra văn bản gốc.</span></td>
 </tr>
 </tbody></table></div>
-<h3 class="subsection-title">Bảng thiết lập từ khóa giám sát theo từng mảng đề tài</h3>
+<h3 id="b-ng-thi-t-l-p-t-kh-a-gi-m-s-t-theo-t-ng-m-ng-t-i" class="subsection-title">Bảng thiết lập từ khóa giám sát theo từng mảng đề tài</h3>
 
         <div class="table-container">
             <div class="table-header-bar">
@@ -1474,7 +1518,7 @@ Hãy đóng vai trò là Biên tập viên Kiểm chứng Dữ liệu của Tòa
 <td data-label="TỪ KHÓA PHỦ ĐỊNH CẦN LOẠI TRỪ"><span class="cell-label">TỪ KHÓA PHỦ ĐỊNH CẦN LOẠI TRỪ: </span><span class="cell-value"><code class="inline-code">-dịch vụ làm sổ nhanh, -cò giấy tờ</code></span></td>
 </tr>
 </tbody></table></div>
-<h3 class="subsection-title">Mẫu lệnh AI phân loại và rút trích đề tài tuần</h3>
+<h3 id="m-u-l-nh-ai-ph-n-lo-i-v-r-t-tr-ch-t-i-tu-n" class="subsection-title">Mẫu lệnh AI phân loại và rút trích đề tài tuần</h3>
 <p class="body-p">Phóng viên có thể xuất tập tin văn bản các phản ánh từ bạn đọc hoặc thông tin tổng hợp trong tuần rồi gửi vào AI theo mẫu lệnh sau:</p>
 
         <div class="prompt-box">
@@ -1496,7 +1540,7 @@ Hãy đóng vai trò là Biên tập viên Kiểm chứng Dữ liệu của Tòa
 - Tuyệt đối không suy diễn thêm thông tin ngoài tập dữ liệu đã cung cấp.</code></pre>
         </div>
         
-<h3 class="subsection-title">Kỷ luật an toàn và tác nghiệp thực tế</h3>
+<h3 id="k-lu-t-an-to-n-v-t-c-nghi-p-th-c-t" class="subsection-title">Kỷ luật an toàn và tác nghiệp thực tế</h3>
 <ul class="content-list">
 <li>Tín hiệu mạng chỉ là gợi ý, không phải sự thật: Mọi cảnh báo từ AI Radar chỉ có giá trị chỉ dấu địa bàn để phóng viên xách máy ảnh đến hiện trường.</li>
 <li>Bảo mật thông tin người phản ánh: Khi thu thập dữ liệu từ các nhóm cộng đồng, phải bảo vệ danh tính của công dân cung cấp thông tin.</li>
@@ -1508,7 +1552,7 @@ Hãy đóng vai trò là Biên tập viên Kiểm chứng Dữ liệu của Tòa
             <div class="section-indicator">📖 Chương 5: Nghiên Cứu Chuyên Sâu (OSINT)</div>
             <h1 class="chapter-title">CHƯƠNG 5: NGHIÊN CỨU CHUYÊN SÂU & KHAI THÁC NGUỒN MỞ (OSINT)</h1>
 <blockquote class="quote-card"><p><em>“Nghiên cứu báo chí chuyên sâu là quá trình kiên trì lần theo các tài liệu công khai có giá trị pháp lý, xâu chuỗi dữ liệu để làm sáng tỏ bản chất vụ việc.”</em></p></blockquote>
-<h3 class="subsection-title">Vượt qua giới hạn của công cụ tìm kiếm phổ thông</h3>
+<h3 id="v-t-qua-gi-i-h-n-c-a-c-ng-c-t-m-ki-m-ph-th-ng" class="subsection-title">Vượt qua giới hạn của công cụ tìm kiếm phổ thông</h3>
 <p class="body-p">Khi điều tra về hoạt động của một doanh nghiệp hoặc một dự án đầu tư phức tạp, công cụ tìm kiếm thông thường thường chỉ trả về thông cáo báo chí một chiều hoặc bài viết tiếp thị. Những tài liệu mang tính bản chất như báo cáo đánh giá tác động môi trường (ĐTM), quyết định phê duyệt quy hoạch chi tiết 1/500, kết luận thanh tra chuyên ngành, hoặc hồ sơ năng lực nhà thầu thường nằm sâu trong các cơ sở dữ liệu công quyền dưới dạng tệp PDF hoặc bảng tính Excel.</p>
 <p class="body-p">Phương pháp khai thác thông tin nguồn mở (OSINT) kết hợp với năng lực phân tích của AI giúp phóng viên:</p>
 <ul class="content-list">
@@ -1516,7 +1560,7 @@ Hãy đóng vai trò là Biên tập viên Kiểm chứng Dữ liệu của Tòa
 <li><strong>Xâu chuỗi hệ sinh thái doanh nghiệp:</strong> Lần theo mã số thuế, người đại diện pháp luật, vốn điều lệ và các pháp nhân liên kết để làm rõ mối quan hệ sở hữu chéo.</li>
 <li><strong>Khôi phục bằng chứng đã bị xóa:</strong> Dùng các kho lưu trữ web quốc tế để tìm lại nội dung đối tượng đã gỡ bỏ sau khi bị phát giác.</li>
 </ul>
-<h3 class="subsection-title">Cẩm nang cú pháp Google Dorks thực chiến dành cho phóng viên điều tra</h3>
+<h3 id="c-m-nang-c-ph-p-google-dorks-th-c-chi-n-d-nh-cho-ph-ng-vi-n-i-u-tra" class="subsection-title">Cẩm nang cú pháp Google Dorks thực chiến dành cho phóng viên điều tra</h3>
 
         <div class="table-container">
             <div class="table-header-bar">
@@ -1556,7 +1600,7 @@ Hãy đóng vai trò là Biên tập viên Kiểm chứng Dữ liệu của Tòa
 <td data-label="Ý NGHĨA NGHIỆP VỤ"><span class="cell-label">Ý NGHĨA NGHIỆP VỤ: </span><span class="cell-value">Buộc công cụ tìm kiếm phải trả về kết quả chứa chính xác cụm từ trong ngoặc kép, không thay đổi ngữ pháp.</span></td>
 </tr>
 </tbody></table></div>
-<h3 class="subsection-title">Bộ công cụ tra cứu nguồn mở & Lưu trữ bằng chứng số</h3>
+<h3 id="b-c-ng-c-tra-c-u-ngu-n-m-l-u-tr-b-ng-ch-ng-s" class="subsection-title">Bộ công cụ tra cứu nguồn mở & Lưu trữ bằng chứng số</h3>
 <ol class="content-list numbered">
 <li><strong>Wayback Machine (<code class="inline-code">web.archive.org</code>) & Archive.today (<code class="inline-code">archive.today</code>):</strong></li>
 </ol>
@@ -1577,7 +1621,7 @@ Hãy đóng vai trò là Biên tập viên Kiểm chứng Dữ liệu của Tòa
 <ul class="content-list">
 <li><em>Ứng dụng:</em> Cung cấp các bộ dữ liệu thống kê mở về phân bổ ngân sách, y tế, giáo dục, giao thông và tài nguyên môi trường.</li>
 </ul>
-<h3 class="subsection-title">Mẫu lệnh AI phân tích hồ sơ đối tượng (Dossier Synthesis)</h3>
+<h3 id="m-u-l-nh-ai-ph-n-t-ch-h-s-i-t-ng-dossier-synthesis" class="subsection-title">Mẫu lệnh AI phân tích hồ sơ đối tượng (Dossier Synthesis)</h3>
 <p class="body-p">Sau khi thu thập được 5-10 tài liệu nguồn mở (Đăng ký kinh doanh, thông báo đấu thầu, quyết định xử phạt), phóng viên nạp vào AI với lệnh sau:</p>
 
         <div class="prompt-box">
@@ -1596,7 +1640,7 @@ Hãy đóng vai trò là Biên tập viên Kiểm chứng Dữ liệu của Tòa
 - Tuyệt đối chỉ sử dụng dữ liệu có trong văn bản đính kèm. Ghi rõ nguồn trích dẫn tương ứng cho từng thông tin.</code></pre>
         </div>
         
-<h3 class="subsection-title">Kỷ luật nghiệp vụ bắt buộc</h3>
+<h3 id="k-lu-t-nghi-p-v-b-t-bu-c" class="subsection-title">Kỷ luật nghiệp vụ bắt buộc</h3>
 <ul class="content-list">
 <li>Khai thác nguồn mở hoàn toàn hợp pháp và minh bạch: Chỉ sử dụng thông tin công khai trên Internet, tuyệt đối không xâm nhập trái phép vào hệ thống mạng của tổ chức hoặc tài khoản cá nhân.</li>
 <li>Lưu trữ bằng chứng: Mọi tài liệu số tải về phải được lưu trữ trong thư mục có dấu thời gian (Timestamp), kèm ảnh chụp toàn màn hình để bảo toàn giá trị chứng cứ đối soát.</li>
@@ -1608,11 +1652,11 @@ Hãy đóng vai trò là Biên tập viên Kiểm chứng Dữ liệu của Tòa
             <div class="section-indicator">📖 Chương 6: Bóc Tách Hồ Sơ Hàng Ngàn Trang</div>
             <h1 class="chapter-title">CHƯƠNG 6: BÓC TÁCH HỒ SƠ LỚN — KỸ THUẬT ĐỌC BÁO CÁO VÀ KẾT LUẬN THANH TRA</h1>
 <blockquote class="quote-card"><p><em>“Sức mạnh của bài điều tra nằm ở chứng cứ tài liệu xác thực. Khả năng đọc hiểu và bóc tách tài liệu dày hàng trăm trang giúp nhà báo nắm chắc bản chất vụ việc.”</em></p></blockquote>
-<h3 class="subsection-title">Thách thức khi tiếp cận hồ sơ phức tạp</h3>
+<h3 id="th-ch-th-c-khi-ti-p-c-n-h-s-ph-c-t-p" class="subsection-title">Thách thức khi tiếp cận hồ sơ phức tạp</h3>
 <p class="body-p">Trong các tuyến bài điều tra kinh tế, đất đai, xây dựng hoặc quản lý tài chính công, phóng viên thường phải tiếp cận các bộ hồ sơ dày từ vài trăm đến hàng nghìn trang: Kết luận của Thanh tra Chính phủ, báo cáo Kiểm toán Nhà nước, hồ sơ phê duyệt dự án và hàng chục phụ lục tài chính. Đọc thủ công toàn bộ khối lượng tài liệu này đòi hỏi nhiều tuần lễ và rất dễ bỏ sót các điểm mâu thuẫn quan trọng.</p>
 <p class="body-p">Nếu nạp tài liệu này vào các chatbot AI thông thường, phóng viên rất dễ đối mặt với hiện tượng "ảo giác" do mô hình tự bịa thêm dữ kiện bên ngoài để lấp đầy câu trả lời.</p>
 <p class="body-p">Để giải quyết triệt để bài toán này, <strong>Google NotebookLM</strong> và <strong>Claude 3.5 Sonnet</strong> là hai công cụ chuyên biệt tối ưu nhất hiện nay.</p>
-<h3 class="subsection-title">Vũ khí số 1: Google NotebookLM — Bóc tách tài liệu không lo ảo giác</h3>
+<h3 id="v-kh-s-1-google-notebooklm-b-c-t-ch-t-i-li-u-kh-ng-lo-o-gi-c" class="subsection-title">Vũ khí số 1: Google NotebookLM — Bóc tách tài liệu không lo ảo giác</h3>
 <p class="body-p">Google NotebookLM (<code class="inline-code">notebooklm.google.com</code>) hoạt động theo nguyên lý <strong>Source-Grounding</strong> (Khóa chặt vào nguồn): Mô hình chỉ trả lời dựa trên chính xác những tài liệu mà người dùng tải lên, tuyệt đối không lấy dữ liệu trôi nổi trên mạng.</p>
 <h4 class="minor-title">Quy trình 3 bước sử dụng NotebookLM cho một bộ hồ sơ thanh tra:</h4>
 <ul class="content-list">
@@ -1632,7 +1676,7 @@ Hãy đóng vai trò là Biên tập viên Kiểm chứng Dữ liệu của Tòa
 </ul>
 <p class="body-p">+ Mỗi câu trả lời của NotebookLM đều kèm theo các số chỉ mục [1], [2]. Khi phóng viên nhấp chuột vào số chỉ mục này, màn hình sẽ hiển thị trực tiếp đoạn văn bản gốc và số trang tương ứng trong tệp PDF.</p>
 <p class="body-p">+ Đây là tính năng sống còn giúp phóng viên đối soát nguyên văn mà không mất hàng giờ lật tìm tài liệu giấy.</p>
-<h3 class="subsection-title">Bảng so sánh hai công cụ xử lý tài liệu lớn</h3>
+<h3 id="b-ng-so-s-nh-hai-c-ng-c-x-l-t-i-li-u-l-n" class="subsection-title">Bảng so sánh hai công cụ xử lý tài liệu lớn</h3>
 
         <div class="table-container">
             <div class="table-header-bar">
@@ -1672,7 +1716,7 @@ Hãy đóng vai trò là Biên tập viên Kiểm chứng Dữ liệu của Tòa
 <td data-label="CLAUDE 3.5 SONNET"><span class="cell-label">CLAUDE 3.5 SONNET: </span><span class="cell-value">Viết phân tích so sánh sâu, soạn thảo dàn ý bài điều tra nhiều kỳ.</span></td>
 </tr>
 </tbody></table></div>
-<h3 class="subsection-title">Mẫu lệnh đối soát hai văn bản trên Claude 3.5 Sonnet</h3>
+<h3 id="m-u-l-nh-i-so-t-hai-v-n-b-n-tr-n-claude-3-5-sonnet" class="subsection-title">Mẫu lệnh đối soát hai văn bản trên Claude 3.5 Sonnet</h3>
 <p class="body-p">Khi cần so sánh báo cáo tự kiểm tra của một đơn vị với kết luận chính thức của cơ quan thanh tra:</p>
 
         <div class="prompt-box">
@@ -1694,7 +1738,7 @@ Lập bảng đối chiếu gồm 4 cột:
 - Giữ nguyên văn các thuật ngữ chuyên môn và số liệu tài chính, không làm tròn số.</code></pre>
         </div>
         
-<h3 class="subsection-title">An toàn bảo mật thông tin</h3>
+<h3 id="an-to-n-b-o-m-t-th-ng-tin" class="subsection-title">An toàn bảo mật thông tin</h3>
 <ul class="content-list">
 <li>Tuyệt đối không tải lên các công cụ AI công cộng những tài liệu đóng dấu độ mật (Mật, Tối mật, Tuyệt mật) hoặc hồ sơ của các vụ án đang trong giai đoạn điều tra tố tụng chưa được phép công bố.</li>
 <li>Văn bản sau khi bóc tách bằng AI chỉ có giá trị tham khảo định hướng; khi hoàn thiện bài viết, phóng viên bắt buộc phải sử dụng chứng cứ từ văn bản gốc có giá trị pháp lý.</li>
@@ -1706,14 +1750,14 @@ Lập bảng đối chiếu gồm 4 cột:
             <div class="section-indicator">📖 Chương 7: Báo Chí Dữ Liệu Thực Chiến</div>
             <h1 class="chapter-title">CHƯƠNG 7: BÁO CHÍ DỮ LIỆU THỰC CHIẾN — PHÂN TÍCH VÀ NHÂN HÓA CÁC CON SỐ</h1>
 <blockquote class="quote-card"><p><em>“Con số thống kê chỉ thực sự có sức mạnh lay động khi người làm báo biết làm rõ ý nghĩa xã hội phía sau và gắn kết chúng với số phận con người cụ thể.”</em></p></blockquote>
-<h3 class="subsection-title">Từ bảng số liệu khô khan đến tác phẩm báo chí giàu sức thuyết phục</h3>
+<h3 id="t-b-ng-s-li-u-kh-khan-n-t-c-ph-m-b-o-ch-gi-u-s-c-thuy-t-ph-c" class="subsection-title">Từ bảng số liệu khô khan đến tác phẩm báo chí giàu sức thuyết phục</h3>
 <p class="body-p">Một bảng số liệu tài chính hoặc bảng thống kê hàng vạn dòng dữ liệu có thể dễ dàng bị lướt qua nếu phóng viên chỉ dừng lại ở việc lọc ra một vài con số tổng hợp đơn giản. Sức mạnh của báo chí dữ liệu nằm ở việc phân tích sâu các mối tương quan để làm nổi bật vấn đề xã hội:</p>
 <ul class="content-list">
 <li>Tỷ lệ giải ngân vốn đầu tư công tại các dự án giao thông trọng điểm chậm do nguyên nhân giải phóng mặt bằng hay do năng lực nhà thầu?</li>
 <li>Biến động chỉ số giá tiêu dùng (CPI) tác động cụ thể như thế nào đến giỏ hàng đi chợ hàng ngày của một hộ gia đình bình dân?</li>
 <li>Những nhóm ngành nào có tỷ lệ nợ đọng bảo hiểm xã hội kéo dài trên 12 tháng cao nhất, và bao nhiêu người lao động bị treo quyền lợi thai sản, ốm đau?</li>
 </ul>
-<h3 class="subsection-title">Bộ công cụ thực chiến: Phân tích và Trực quan hóa dữ liệu trong 3 phút</h3>
+<h3 id="b-c-ng-c-th-c-chi-n-ph-n-t-ch-v-tr-c-quan-h-a-d-li-u-trong-3-ph-t" class="subsection-title">Bộ công cụ thực chiến: Phân tích và Trực quan hóa dữ liệu trong 3 phút</h3>
 <h4 class="minor-title">1. ChatGPT Advanced Data Analysis (Code Interpreter) — Phân tích dữ liệu tự động</h4>
 <p class="body-p">Đây là tính năng tích hợp trong ChatGPT, cho phép AI chạy mã lập trình Python trong môi trường độc lập để xử lý bảng tính:</p>
 <ul class="content-list">
@@ -1738,7 +1782,7 @@ Lập bảng đối chiếu gồm 4 cột:
 </ul>
 <h4 class="minor-title">3. Flourish (<code class="inline-code">flourish.studio</code>) — Biểu đồ động và Bản đồ số</h4>
 <p class="body-p">Phù hợp khi làm các tuyến bài chuyên đề lớn cần biểu đồ đua (Bar Chart Race) thể hiện sự thay đổi thứ hạng kinh tế qua các năm, hoặc bản đồ địa lý thể hiện mức độ ô nhiễm, mật độ phân bổ dân cư.</p>
-<h3 class="subsection-title">Bảng hướng dẫn chọn dạng biểu đồ chuẩn báo chí</h3>
+<h3 id="b-ng-h-ng-d-n-ch-n-d-ng-bi-u-chu-n-b-o-ch" class="subsection-title">Bảng hướng dẫn chọn dạng biểu đồ chuẩn báo chí</h3>
 
         <div class="table-container">
             <div class="table-header-bar">
@@ -1778,7 +1822,7 @@ Lập bảng đối chiếu gồm 4 cột:
 <td data-label="CÔNG CỤ TỐI ƯU"><span class="cell-label">CÔNG CỤ TỐI ƯU: </span><span class="cell-value">Datawrapper</span></td>
 </tr>
 </tbody></table></div>
-<h3 class="subsection-title">Kỹ thuật "Nhân hóa con số": Mẫu câu lệnh biến số liệu thành đời sống</h3>
+<h3 id="k-thu-t-nh-n-h-a-con-s-m-u-c-u-l-nh-bi-n-s-li-u-th-nh-i-s-ng" class="subsection-title">Kỹ thuật "Nhân hóa con số": Mẫu câu lệnh biến số liệu thành đời sống</h3>
 <p class="body-p">Sau khi đã có các phân tích thống kê chính xác, phóng viên dùng mẫu câu lệnh sau để chuyển hóa số liệu vĩ mô thành góc nhìn dân sinh:</p>
 
         <div class="prompt-box">
@@ -1802,7 +1846,7 @@ Lập bảng đối chiếu gồm 4 cột:
 [RÀNG BUỘC]: Giữ giọng văn điềm đạm, nhân văn, dựa chắc vào số liệu đã đối soát.</code></pre>
         </div>
         
-<h3 class="subsection-title">Nguyên tắc thận trọng với số liệu</h3>
+<h3 id="nguy-n-t-c-th-n-tr-ng-v-i-s-li-u" class="subsection-title">Nguyên tắc thận trọng với số liệu</h3>
 <ul class="content-list">
 <li>Tương quan thống kê không đồng nghĩa với quan hệ nhân quả. Phóng viên cần tham vấn ý kiến của các chuyên gia kinh tế và cơ quan quản lý trước khi đưa ra nhận định về nguyên nhân của các biến động số liệu.</li>
 <li>Mọi con số quan trọng trước khi xuất bản đều phải được bấm lại kiểm tra bằng phương pháp tính toán độc lập nhằm bảo đảm độ chính xác tuyệt đối.</li>
@@ -1814,7 +1858,7 @@ Lập bảng đối chiếu gồm 4 cột:
             <div class="section-indicator">📖 Chương 8: Chuẩn Bị Phỏng Vấn Đối Chất</div>
             <h1 class="chapter-title">CHƯƠNG 8: CHUẨN BỊ PHỎNG VẤN ĐỐI CHẤT — XÂY DỰNG KỊCH BẢN PHẢN BIỆN ĐA CHIỀU</h1>
 <blockquote class="quote-card"><p><em>“Một cuộc phỏng vấn đối chất thành công đòi hỏi sự chuẩn bị công phu về tài liệu chứng cứ, sự thấu hiểu tâm lý nhân vật và khả năng dự báo trước các luồng lập luận phản biện.”</em></p></blockquote>
-<h3 class="subsection-title">Chủ động dự báo các tình huống đối thoại</h3>
+<h3 id="ch-ng-d-b-o-c-c-t-nh-hu-ng-i-tho-i" class="subsection-title">Chủ động dự báo các tình huống đối thoại</h3>
 <p class="body-p">Trong các cuộc phỏng vấn điều tra hoặc làm việc với đại diện cơ quan, doanh nghiệp về những vấn đề còn có ý kiến trái chiều, phóng viên thường gặp phải những câu trả lời né tránh, viện dẫn lý do khách quan hoặc chuyển hướng trách nhiệm. Nếu không chuẩn bị kỹ lưỡng hệ thống câu hỏi gắn liền với chứng cứ tài liệu, cuộc phỏng vấn rất dễ rơi vào tình trạng đối thoại một chiều và không làm rõ được bản chất vấn đề.</p>
 <p class="body-p">Kỹ thuật sử dụng AI làm <strong>"Biện hộ của Quỷ" (Devil's Advocate)</strong> cho phép phóng viên diễn tập trước các tình huống đối chất:</p>
 <ul class="content-list">
@@ -1822,7 +1866,7 @@ Lập bảng đối chiếu gồm 4 cột:
 <li><strong>Lường trước các phương án giải trình:</strong> AI sẽ liệt kê các luận điểm né tránh phổ biến nhất mà đối tượng có thể đưa ra (khó khăn do đối tác, vướng mắc giải phóng mặt bằng, thay đổi cơ chế chính sách).</li>
 <li><strong>Thiết lập kịch bản câu hỏi hình phễu 3 lớp:</strong> Giúp phóng viên giữ thế chủ động, bình tĩnh xoay quanh chứng cứ và đưa đối thoại đi thẳng vào trọng tâm.</li>
 </ul>
-<h3 class="subsection-title">Cấu trúc kịch bản phỏng vấn đối chất hình phễu 3 lớp</h3>
+<h3 id="c-u-tr-c-k-ch-b-n-ph-ng-v-n-i-ch-t-h-nh-ph-u-3-l-p" class="subsection-title">Cấu trúc kịch bản phỏng vấn đối chất hình phễu 3 lớp</h3>
 
         <div class="prompt-box">
             <div class="prompt-header">
@@ -1846,7 +1890,7 @@ Lập bảng đối chiếu gồm 4 cột:
 └────────────────────────────┴────────────────────────────────────────────────┘</code></pre>
         </div>
         
-<h3 class="subsection-title">Mẫu lệnh AI giả lập đối chất phỏng vấn thực chiến</h3>
+<h3 id="m-u-l-nh-ai-gi-l-p-i-ch-t-ph-ng-v-n-th-c-chi-n" class="subsection-title">Mẫu lệnh AI giả lập đối chất phỏng vấn thực chiến</h3>
 <p class="body-p">Phóng viên có thể sao chép mẫu lệnh sau nạp vào Claude 3.5 Sonnet hoặc ChatGPT Plus trước buổi làm việc:</p>
 
         <div class="prompt-box">
@@ -1870,7 +1914,7 @@ Tôi là Phóng viên, đang có trong tay các chứng cứ:
 3. Thiết lập danh mục 5 câu hỏi phỏng vấn trực diện theo cấu trúc phễu 3 lớp: Điềm đạm, tôn trọng nhưng không cho phép đối tượng vòng vo.</code></pre>
         </div>
         
-<h3 class="subsection-title">Đạo đức và văn hóa phỏng vấn báo chí</h3>
+<h3 id="o-c-v-v-n-h-a-ph-ng-v-n-b-o-ch" class="subsection-title">Đạo đức và văn hóa phỏng vấn báo chí</h3>
 <ul class="content-list">
 <li>Mục tiêu tối thượng của phỏng vấn đối chất là <strong>làm sáng tỏ sự thật một cách khách quan, công bằng và đa chiều</strong>, không nhằm mục đích công kích cá nhân hay áp đặt quan điểm chủ quan.</li>
 <li>Luôn lắng nghe và ghi nhận đầy đủ quyền giải trình của nhân vật, bảo đảm quyền được thông tin chính xác theo Điều 38 Luật Báo chí số 126/2025/QH15.</li>
@@ -1882,14 +1926,14 @@ Tôi là Phóng viên, đang có trong tay các chứng cứ:
             <div class="section-indicator">📖 Chương 9: Chắp Bút & Biên Tập Đĩnh Đạc</div>
             <h1 class="chapter-title">CHƯƠNG 9: CHẮP BÚT & BIÊN TẬP ĐĨNH ĐẠC — NGUYÊN TẮC BLUF VÀ KHỬ VĂN MẪU SÁO RỖNG</h1>
 <blockquote class="quote-card"><p><em>“Một bài báo đĩnh đạc thu hút độc giả bằng thông tin xác thực, lập luận khúc chiết và ngôn từ trong sáng, không nương tựa vào những mỹ từ sáo rỗng.”</em></p></blockquote>
-<h3 class="subsection-title">Nhận diện và thanh lọc "văn mẫu" công nghệ</h3>
+<h3 id="nh-n-di-n-v-thanh-l-c-v-n-m-u-c-ng-ngh" class="subsection-title">Nhận diện và thanh lọc "văn mẫu" công nghệ</h3>
 <p class="body-p">Khi phóng viên phụ thuộc quá nhiều vào các công cụ sinh văn bản tự động, tác phẩm báo chí rất dễ bị nhiễm phong cách viết khuôn sáo: Sử dụng quá nhiều trạng từ mở đầu vô thưởng vô phạt (<em>"Trong bối cảnh hiện nay...", "Đứng trước yêu cầu đổi mới..."</em>), lạm dụng tính từ tu từ rỗng nghĩa (<em>"vô cùng quan trọng", "bức tranh đa sắc", "đòn bẩy then chốt", "nốt trầm xao xuyến"</em>) và các câu kết mang tính hô hào khẩu hiệu chung chung.</p>
 <p class="body-p">Để xây dựng phong cách chính luận đĩnh đạc, người làm báo cần thực hành hai nguyên tắc cốt lõi:</p>
 <ol class="content-list numbered">
 <li><strong>Nguyên tắc BLUF (Bottom Line Up Front — Đưa thông điệp chính lên hàng đầu):</strong> Độc giả hiện đại tiếp nhận thông tin trong thời gian ngắn. Phần mở đầu (Sapo) của bài viết phải nêu bật ngay kết luận cốt tử, con số nổi bật nhất hoặc vấn đề chính sách mới nhất trong không quá 3 dòng.</li>
 <li><strong>Cấu trúc Kim tự tháp Minto:</strong> Sắp xếp lập luận từ tổng quát đến chi tiết: Thông điệp cốt lõi ở đỉnh tháp $	o$ Các luận điểm chứng minh ở tầng giữa $	o$ Các dữ liệu thực tế (số liệu, văn bản, ý kiến nhân chứng) làm bệ đỡ vững chắc ở tầng đáy.</li>
 </ol>
-<h3 class="subsection-title">Sổ tay nhận diện và khử bỏ các biểu hiện văn mẫu AI</h3>
+<h3 id="s-tay-nh-n-di-n-v-kh-b-c-c-bi-u-hi-n-v-n-m-u-ai" class="subsection-title">Sổ tay nhận diện và khử bỏ các biểu hiện văn mẫu AI</h3>
 
         <div class="table-container">
             <div class="table-header-bar">
@@ -1924,7 +1968,7 @@ Tôi là Phóng viên, đang có trong tay các chứng cứ:
 <td data-label="CÁCH VIẾT THAY THẾ CHUẨN THÔNG TẤN"><span class="cell-label">CÁCH VIẾT THAY THẾ CHUẨN THÔNG TẤN: </span><span class="cell-value">Tách thành hai câu ngắn, đi thẳng vào vị ngữ và hành động thực tế.</span></td>
 </tr>
 </tbody></table></div>
-<h3 class="subsection-title">Ba mẫu Prompt thực chiến biên tập văn bản</h3>
+<h3 id="ba-m-u-prompt-th-c-chi-n-bi-n-t-p-v-n-b-n" class="subsection-title">Ba mẫu Prompt thực chiến biên tập văn bản</h3>
 <h4 class="minor-title">Mẫu 1: Gọt giũa bản thảo từ thô sang tinh (Khử văn mẫu & Chuẩn hóa BLUF)</h4>
 
         <div class="prompt-box">
@@ -1960,7 +2004,7 @@ Tôi là Phóng viên, đang có trong tay các chứng cứ:
 - Phương án 5 (Báo in truyền thống): Đĩnh đạc, cô đọng, giàu sức nặng ngôn từ.</code></pre>
         </div>
         
-<h3 class="subsection-title">Giữ gìn sự trong sáng của tiếng Việt</h3>
+<h3 id="gi-g-n-s-trong-s-ng-c-a-ti-ng-vi-t" class="subsection-title">Giữ gìn sự trong sáng của tiếng Việt</h3>
 <ul class="content-list">
 <li>Công nghệ là công cụ hỗ trợ cấu trúc và gợi mở ý tưởng, nhưng giọng văn, bản lĩnh và cảm xúc nhân văn của tác phẩm luôn là dấu ấn độc quyền của người cầm bút.</li>
 <li>Tuyệt đối không lạm dụng các cấu trúc câu lai căng từ ngữ pháp nước ngoài, giữ gìn sự chuẩn mực của tiếng Việt trong mọi bài viết.</li>
@@ -1972,10 +2016,10 @@ Tôi là Phóng viên, đang có trong tay các chứng cứ:
             <div class="section-indicator">📖 Chương 10: Tác Nghiệp Đa Phương Tiện</div>
             <h1 class="chapter-title">CHƯƠNG 10: TÁC NGHIỆP ĐA PHƯƠNG TIỆN — BÓC BĂNG TỐC ĐỘ CAO, INFOGRAPHIC VÀ VIDEO NGẮN</h1>
 <blockquote class="quote-card"><p><em>“Một tác phẩm báo chí hiện đại cần được đóng gói linh hoạt thành nhiều định dạng thông tin phù hợp với thói quen tiếp nhận đa dạng của công chúng.”</em></p></blockquote>
-<h3 class="subsection-title">Tối ưu hóa thời gian xử lý đa phương tiện</h3>
+<h3 id="t-i-u-h-a-th-i-gian-x-l-a-ph-ng-ti-n" class="subsection-title">Tối ưu hóa thời gian xử lý đa phương tiện</h3>
 <p class="body-p">Tại các sự kiện thời sự khẩn cấp hoặc các cuộc họp báo đột xuất, phóng viên thường phải kiêm nhiệm: vừa gửi tin tường thuật nhanh lên báo điện tử, vừa chuẩn bị trích dẫn phát ngôn dạng ảnh (Quote-card), vừa dựng video ngắn 60 giây cho các nền tảng số. Việc nghe lại và gỡ băng thủ công các tệp ghi âm hàng tiếng đồng hồ tiêu tốn rất nhiều thời gian cơ bắp.</p>
 <p class="body-p">Bộ công cụ AI đa phương tiện chuyên dụng giúp rút ngắn quy trình này từ vài giờ xuống còn vài phút:</p>
-<h3 class="subsection-title">Hộp công cụ thực chiến: Gỡ băng, Đồ họa và Video ngắn</h3>
+<h3 id="h-p-c-ng-c-th-c-chi-n-g-b-ng-h-a-v-video-ng-n" class="subsection-title">Hộp công cụ thực chiến: Gỡ băng, Đồ họa và Video ngắn</h3>
 
         <div class="table-container">
             <div class="table-header-bar">
@@ -2015,7 +2059,7 @@ Tôi là Phóng viên, đang có trong tay các chứng cứ:
 <td data-label="CÁCH SỬ DỤNG AN TOÀN"><span class="cell-label">CÁCH SỬ DỤNG AN TOÀN: </span><span class="cell-value">Cắt video hiện trường $	o$ Nhấn "Tự động tạo phụ đề" $	o$ Chọn kiểu chữ vàng/trắng viền đen dễ đọc $	o$ Xuất video 1080p tỷ lệ 9:16.</span></td>
 </tr>
 </tbody></table></div>
-<h3 class="subsection-title">Quy trình 3 bước xử lý nhanh một cuộc phỏng vấn 60 phút</h3>
+<h3 id="quy-tr-nh-3-b-c-x-l-nhanh-m-t-cu-c-ph-ng-v-n-60-ph-t" class="subsection-title">Quy trình 3 bước xử lý nhanh một cuộc phỏng vấn 60 phút</h3>
 <ul class="content-list">
 <li><strong>Bước 1: Gỡ băng thần tốc với Whisper (3 phút):</strong> Kéo file ghi âm vào MacWhisper, xuất file văn bản thô kèm mốc thời gian (Timestamps).</li>
 <li><strong>Bước 2: Lọc phát ngôn vàng bằng AI (2 phút):</strong> Nạp bản gỡ băng vào AI với yêu cầu: <em>"Tìm 3 đoạn phát ngôn có tính cam kết hoặc thừa nhận trách nhiệm trực tiếp nhất của nhân vật, kèm mốc phút:giây"</em>.</li>
@@ -2024,7 +2068,7 @@ Tôi là Phóng viên, đang có trong tay các chứng cứ:
 <p class="body-p">+ Bài viết: Đưa phát ngôn nguyên văn vào ngoặc kép.</p>
 <p class="body-p">+ Đồ họa: Đưa phát ngôn cốt tử vào mẫu Quote-card trên Canva.</p>
 <p class="body-p">+ Video ngắn: Cắt đoạn video tương ứng đưa vào CapCut, tạo phụ đề tự động và xuất bản.</p>
-<h3 class="subsection-title">Mẫu lệnh chuyển thể bài viết sang kịch bản video thông tấn 60 giây</h3>
+<h3 id="m-u-l-nh-chuy-n-th-b-i-vi-t-sang-k-ch-b-n-video-th-ng-t-n-60-gi-y" class="subsection-title">Mẫu lệnh chuyển thể bài viết sang kịch bản video thông tấn 60 giây</h3>
 
         <div class="prompt-box">
             <div class="prompt-header">
@@ -2042,7 +2086,7 @@ Tôi là Phóng viên, đang có trong tay các chứng cứ:
 - Lời bình khách quan, trung thực, tuyệt đối không dùng từ giật gân, câu view rẻ tiền.</code></pre>
         </div>
         
-<h3 class="subsection-title">Lằn ranh đỏ về tính chân thực của hình ảnh báo chí</h3>
+<h3 id="l-n-ranh-v-t-nh-ch-n-th-c-c-a-h-nh-nh-b-o-ch" class="subsection-title">Lằn ranh đỏ về tính chân thực của hình ảnh báo chí</h3>
 <ul class="content-list">
 <li><strong>Quy tắc tuyệt đối:</strong> Trong các tin bài thời sự, mọi hình ảnh đăng tải bắt buộc phải là <strong>ảnh chụp thực tế từ hiện trường</strong> do phóng viên bấm máy hoặc do cơ quan có thẩm quyền cung cấp.</li>
 <li>Tuyệt đối nghiêm cấm việc sử dụng các công cụ AI tạo ảnh (Midjourney, DALL-E) để giả mạo hình ảnh hiện trường thiên tai, tai nạn, cứu nạn hoặc các cuộc làm việc công vụ.</li>
@@ -2054,7 +2098,7 @@ Tôi là Phóng viên, đang có trong tay các chứng cứ:
             <div class="section-indicator">📖 Chương 11: AI Cho Phóng Viên Bám Địa Bàn</div>
             <h1 class="chapter-title">CHƯƠNG 11: AI CHO PHÓNG VIÊN BÁM ĐỊA BÀN — TÁC NGHIỆP HIỆN TRƯỜNG VÀ CƠ ĐỘNG LINH HOẠT</h1>
 <blockquote class="quote-card"><p><em>“Phóng viên bám địa bàn và theo dõi chuyên mảng thường xuyên phải tác nghiệp độc lập ngoài hiện trường. Thiết bị di động tích hợp công cụ thông minh là trợ thủ đắc lực giúp xử lý thông tin nhanh, chuẩn xác và kịp thời gửi về tòa soạn.”</em></p></blockquote>
-<h3 class="subsection-title">Yêu cầu tác nghiệp cơ động ngoài hiện trường</h3>
+<h3 id="y-u-c-u-t-c-nghi-p-c-ng-ngo-i-hi-n-tr-ng" class="subsection-title">Yêu cầu tác nghiệp cơ động ngoài hiện trường</h3>
 <p class="body-p">Phóng viên phụ trách các mảng nội dung tại cơ sở (kinh tế đô thị, hạ tầng giao thông, cải cách hành chính, đời sống dân sinh, thị trường...) thường xuyên phải di chuyển giữa các điểm nóng thực địa, trụ sở cơ quan chức năng và khu dân cư. Tại hiện trường, phóng viên thường chỉ có trong tay một chiếc điện thoại thông minh và sổ tay ghi chép.</p>
 <p class="body-p">Việc làm chủ các ứng dụng di động thông minh giúp phóng viên biến điện thoại thành một "Tòa soạn bỏ túi":</p>
 <ul class="content-list">
@@ -2062,7 +2106,7 @@ Tôi là Phóng viên, đang có trong tay các chứng cứ:
 <li><strong>Xử lý nhanh tin bài trên đường di chuyển:</strong> Không cần đợi về văn phòng mở máy tính, phóng viên có thể phác thảo khung tin thời sự ngay trên xe.</li>
 <li><strong>Tra cứu và đối soát tức thời:</strong> Kiểm tra chéo mã số thuế doanh nghiệp, tình trạng quy hoạch, lịch sử dự án ngay trong lúc đang đối thoại với nhân vật.</li>
 </ul>
-<h3 class="subsection-title">Bộ công cụ di động thiết yếu trên điện thoại thông minh của phóng viên</h3>
+<h3 id="b-c-ng-c-di-ng-thi-t-y-u-tr-n-i-n-tho-i-th-ng-minh-c-a-ph-ng-vi-n" class="subsection-title">Bộ công cụ di động thiết yếu trên điện thoại thông minh của phóng viên</h3>
 
         <div class="table-container">
             <div class="table-header-bar">
@@ -2097,7 +2141,7 @@ Tôi là Phóng viên, đang có trong tay các chứng cứ:
 <td data-label="TÍNH NĂNG VÀ CÁCH DÙNG THỰC CHIẾN"><span class="cell-label">TÍNH NĂNG VÀ CÁCH DÙNG THỰC CHIẾN: </span><span class="cell-value">Ghi âm các cuộc phỏng vấn hiện trường, đồng bộ nhanh về máy tính xách tay hoặc tóm tắt ý chính ngay trên ứng dụng di động.</span></td>
 </tr>
 </tbody></table></div>
-<h3 class="subsection-title">Quy trình 15 phút xử lý tin nóng từ hiện trường về tòa soạn</h3>
+<h3 id="quy-tr-nh-15-ph-t-x-l-tin-n-ng-t-hi-n-tr-ng-v-t-a-so-n" class="subsection-title">Quy trình 15 phút xử lý tin nóng từ hiện trường về tòa soạn</h3>
 
         <div class="prompt-box">
             <div class="prompt-header">
@@ -2114,7 +2158,7 @@ Mở ứng dụng ChatGPT/Claude trên điện thoại -&gt; Dán văn bản OCR
 Phóng viên tự kiểm tra lại các mốc giờ, tên riêng của văn bản gốc -&gt; Gắn kèm 2 ảnh chụp hiện trường có độ nét cao -&gt; Gửi thẳng vào hệ thống CMS hoặc nhóm tin nhanh của Ban Thư ký Tòa soạn.</code></pre>
         </div>
         
-<h3 class="subsection-title">Mẫu lệnh tra cứu và xử lý nhanh văn bản tại địa bàn</h3>
+<h3 id="m-u-l-nh-tra-c-u-v-x-l-nhanh-v-n-b-n-t-i-a-b-n" class="subsection-title">Mẫu lệnh tra cứu và xử lý nhanh văn bản tại địa bàn</h3>
 
         <div class="prompt-box">
             <div class="prompt-header">
@@ -2135,7 +2179,7 @@ Dưới đây là nội dung công văn/thông báo vừa được chụp và qu
 [RÀNG BUỘC]: Giữ nguyên vẹn số hiệu văn bản và các mốc thời hạn.</code></pre>
         </div>
         
-<h3 class="subsection-title">An toàn thông tin và kỷ luật hiện trường</h3>
+<h3 id="an-to-n-th-ng-tin-v-k-lu-t-hi-n-tr-ng" class="subsection-title">An toàn thông tin và kỷ luật hiện trường</h3>
 <ul class="content-list">
 <li>Khi tác nghiệp tại các điểm nóng phức tạp, phóng viên luôn công khai danh tính nhà báo, xuất trình thẻ tác nghiệp đúng quy định và giữ khoảng cách an toàn, tuân thủ hướng dẫn của lực lượng chức năng.</li>
 <li>Bảo mật thiết bị di động bằng mật khẩu an toàn và mã hóa sinh trắc học (vân tay/khuôn mặt); cài đặt tính năng định vị và xóa dữ liệu từ xa phòng trường hợp thất lạc máy.</li>
@@ -2147,7 +2191,7 @@ Dưới đây là nội dung công văn/thông báo vừa được chụp và qu
             <div class="section-indicator">📖 Chương 12: Đặc Vụ AI Tác Nghiệp (AI Agent)</div>
             <h1 class="chapter-title">CHƯƠNG 12: ĐẶC VỤ AI TÁC NGHIỆP — GIÁM SÁT DỮ LIỆU 24/7 DƯỚI SỰ KIỂM SOÁT CỦA CON NGƯỜI</h1>
 <blockquote class="quote-card"><p><em>“Đặc vụ AI là cánh tay nối dài giúp người làm báo theo dõi liên tục các luồng thông tin công quyền, nhưng con người luôn là trung tâm phán đoán và ra quyết định.”</em></p></blockquote>
-<h3 class="subsection-title">Bước chuyển từ công cụ hỏi - đáp sang hệ thống tác vụ tự động</h3>
+<h3 id="b-c-chuy-n-t-c-ng-c-h-i-p-sang-h-th-ng-t-c-v-t-ng" class="subsection-title">Bước chuyển từ công cụ hỏi - đáp sang hệ thống tác vụ tự động</h3>
 <p class="body-p">Trong mô hình sử dụng AI truyền thống, phóng viên phải chủ động gõ câu hỏi và chờ phản hồi. Tuy nhiên, trong quản lý địa bàn, nhiều công việc mang tính chất giám sát định kỳ đòi hỏi sự hiện diện thường xuyên: Theo dõi công báo các tỉnh, rà soát danh sách công bố giải thể doanh nghiệp, cập nhật các gói thầu xây dựng hạ tầng dân sinh, hoặc theo dõi các quyết định xử phạt hành chính mới ban hành.</p>
 <p class="body-p">Khái niệm <strong>Đặc vụ AI (AI Agent)</strong> ra đời nhằm đáp ứng nhu cầu này:</p>
 <ul class="content-list">
@@ -2155,7 +2199,7 @@ Dưới đây là nội dung công văn/thông báo vừa được chụp và qu
 <li><strong>Vòng lặp vận hành có định hướng:</strong> Agent tự động đọc các nguồn thông tin công khai theo lịch trình được cài đặt $	o$ So sánh dữ liệu mới với các tiêu chí rủi ro $	o$ Soạn thảo bản tóm tắt ngắn gửi về cho phóng viên trực địa bàn qua Telegram hoặc email.</li>
 <li><strong>Nguyên tắc "Chốt chặn con người" (Human-in-the-loop):</strong> Agent chỉ thực hiện chức năng thu thập, đối soát và cảnh báo. Mọi hoạt động viết bài, biên tập và xuất bản lên hệ thống quản trị nội dung (CMS) bắt buộc phải do phóng viên con người trực tiếp kiểm tra và phê duyệt.</li>
 </ul>
-<h3 class="subsection-title">Hộp công cụ thực chiến: Giám sát web tự động 24/7</h3>
+<h3 id="h-p-c-ng-c-th-c-chi-n-gi-m-s-t-web-t-ng-24-7" class="subsection-title">Hộp công cụ thực chiến: Giám sát web tự động 24/7</h3>
 
         <div class="table-container">
             <div class="table-header-bar">
@@ -2183,7 +2227,7 @@ Dưới đây là nội dung công văn/thông báo vừa được chụp và qu
 <td data-label="HƯỚNG DẪN THIẾT LẬP THỰC TẾ"><span class="cell-label">HƯỚNG DẪN THIẾT LẬP THỰC TẾ: </span><span class="cell-value">Tạo kịch bản (Scenario): <em>Khi RSS Cổng TTĐT tỉnh có bài mới $	o$ Gửi nội dung qua Claude/OpenAI tóm tắt trong 50 từ $	o$ Đẩy thông báo vào ứng dụng chat nội bộ</em>.</span></td>
 </tr>
 </tbody></table></div>
-<h3 class="subsection-title">Khung thiết kế một đặc vụ giám sát dữ liệu công quyền</h3>
+<h3 id="khung-thi-t-k-m-t-c-v-gi-m-s-t-d-li-u-c-ng-quy-n" class="subsection-title">Khung thiết kế một đặc vụ giám sát dữ liệu công quyền</h3>
 
         <div class="prompt-box">
             <div class="prompt-header">
@@ -2207,7 +2251,7 @@ Dưới đây là nội dung công văn/thông báo vừa được chụp và qu
 └──────────────────────────┴──────────────────────────────────────────────────┘</code></pre>
         </div>
         
-<h3 class="subsection-title">Mẫu System Prompt cài đặt cho AI Agent giám sát</h3>
+<h3 id="m-u-system-prompt-c-i-t-cho-ai-agent-gi-m-s-t" class="subsection-title">Mẫu System Prompt cài đặt cho AI Agent giám sát</h3>
 
         <div class="prompt-box">
             <div class="prompt-header">
@@ -2231,7 +2275,7 @@ Bạn là Trợ lý Tác vụ Giám sát Dữ liệu Công quyền của Văn ph
 - Luôn lưu giữ đường dẫn URL và số hiệu văn bản gốc để phóng viên đối soát.</code></pre>
         </div>
         
-<h3 class="subsection-title">Tuân thủ pháp luật và đạo đức nghề nghiệp</h3>
+<h3 id="tu-n-th-ph-p-lu-t-v-o-c-ngh-nghi-p" class="subsection-title">Tuân thủ pháp luật và đạo đức nghề nghiệp</h3>
 <ul class="content-list">
 <li><strong>Nghị định số 237/2026/NĐ-CP</strong> quy định rõ trách nhiệm kiểm duyệt thông tin của cơ quan báo chí trên nền tảng số. Việc để các hệ thống tự động xuất bản nội dung mà không qua khâu duyệt của con người là hành vi vi phạm nghiêm trọng quy chế hoạt động báo chí.</li>
 <li>Định kỳ hàng tuần, phóng viên cần kiểm tra nhật ký hoạt động của Agent để bảo đảm hệ thống vận hành đúng phạm vi cho phép và không phát sinh lỗi lệch hướng thông tin.</li>
@@ -2243,7 +2287,7 @@ Bạn là Trợ lý Tác vụ Giám sát Dữ liệu Công quyền của Văn ph
             <div class="section-indicator">📖 Chương 13: Xây Dựng Quy Trình Tự Động Hóa</div>
             <h1 class="chapter-title">CHƯƠNG 13: XÂY DỰNG QUY TRÌNH TỰ ĐỘNG HÓA TRONG TÒA SOẠN</h1>
 <blockquote class="quote-card"><p><em>“Tự động hóa quy trình nghiệp vụ giải phóng sức lao động thủ công của người làm báo, tạo thêm quỹ thời gian quý báu cho công tác điều tra thực tế tại hiện trường.”</em></p></blockquote>
-<h3 class="subsection-title">Chuẩn hóa các công đoạn tác nghiệp lặp đi lặp lại</h3>
+<h3 id="chu-n-h-a-c-c-c-ng-o-n-t-c-nghi-p-l-p-i-l-p-l-i" class="subsection-title">Chuẩn hóa các công đoạn tác nghiệp lặp đi lặp lại</h3>
 <p class="body-p">Trong hoạt động thường nhật của văn phòng đại diện, có rất nhiều công việc mang tính cơ học nhưng tiêu tốn đáng kể thời gian: Tải các báo cáo kinh tế - xã hội định kỳ từ các địa phương, chuyển đổi định dạng tài liệu, lập bảng điểm tin đầu ngày và đối chiếu các chỉ số thống kê.</p>
 <p class="body-p">Việc tự xây dựng một <strong>Trợ lý Chuyên mảng Riêng biệt (Custom GPTs trên ChatGPT hoặc Projects trên Claude)</strong> giúp phóng viên chuẩn hóa toàn bộ chuỗi công việc này:</p>
 <ul class="content-list">
@@ -2251,7 +2295,7 @@ Bạn là Trợ lý Tác vụ Giám sát Dữ liệu Công quyền của Văn ph
 <li><strong>Tiết kiệm thời gian xử lý:</strong> Rút ngắn thời gian từ khâu tiếp nhận thông tin đến khi có bản thảo ban đầu phục vụ phóng viên rà soát.</li>
 <li><strong>Tập trung cho giá trị cốt lõi:</strong> Phóng viên dành phần lớn thời gian để đi sâu phân tích bối cảnh, phỏng vấn thực địa và đánh giá tác động xã hội của thông tin.</li>
 </ul>
-<h3 class="subsection-title">Hướng dẫn 3 bước tạo "Trợ lý Chuyên mảng" cá nhân trên ChatGPT hoặc Claude</h3>
+<h3 id="h-ng-d-n-3-b-c-t-o-tr-l-chuy-n-m-ng-c-nh-n-tr-n-chatgpt-ho-c-claude" class="subsection-title">Hướng dẫn 3 bước tạo "Trợ lý Chuyên mảng" cá nhân trên ChatGPT hoặc Claude</h3>
 <h4 class="minor-title">Bước 1: Khởi tạo Trợ lý chuyên trách</h4>
 <ul class="content-list">
 <li>Trên ChatGPT Plus: Chọn <strong>Explore GPTs $	o$ Create a GPT</strong>.</li>
@@ -2281,7 +2325,7 @@ Nhiệm vụ của bạn:
 4. Nếu số liệu trong tài liệu có dấu hiệu bất thường hoặc mâu thuẫn, hãy đánh dấu màu đỏ để tôi kiểm tra lại thực địa.</code></pre>
         </div>
         
-<h3 class="subsection-title">Chuỗi 6 mắt xích của quy trình tác nghiệp tự động chuẩn</h3>
+<h3 id="chu-i-6-m-t-x-ch-c-a-quy-tr-nh-t-c-nghi-p-t-ng-chu-n" class="subsection-title">Chuỗi 6 mắt xích của quy trình tác nghiệp tự động chuẩn</h3>
 
         <div class="table-container">
             <div class="table-header-bar">
@@ -2326,7 +2370,7 @@ Nhiệm vụ của bạn:
 <td data-label="CƠ CHẾ KIỂM SOÁT AN TOÀN"><span class="cell-label">CƠ CHẾ KIỂM SOÁT AN TOÀN: </span><span class="cell-value">Đảm bảo tính sẵn sàng phục vụ công tác tra cứu khi cần.</span></td>
 </tr>
 </tbody></table></div>
-<h3 class="subsection-title">Nguyên tắc vận hành an toàn</h3>
+<h3 id="nguy-n-t-c-v-n-h-nh-an-to-n" class="subsection-title">Nguyên tắc vận hành an toàn</h3>
 <ul class="content-list">
 <li>Luôn duy trì cơ chế dự phòng (Fail-safe): Khi hệ thống tự động gặp trục trặc kỹ thuật hoặc mất kết nối mạng, quy trình tác nghiệp phải lập tức chuyển sang chế độ xử lý thủ công bình thường, không làm gián đoạn dòng chảy xuất bản.</li>
 <li>Tuyệt đối không giao phó khâu đánh giá bản chất sự kiện cho máy móc; nhận định chính luận luôn là sản phẩm tư duy độc lập của người làm báo.</li>
@@ -2338,7 +2382,7 @@ Nhiệm vụ của bạn:
             <div class="section-indicator">📖 Chương 14: Kỷ Luật An Toàn & Bảo Vệ Nguồn Tin</div>
             <h1 class="chapter-title">CHƯƠNG 14: KỶ LUẬT AN TOÀN THÔNG TIN & BẢO VỆ NGUỒN TIN MẬT</h1>
 <blockquote class="quote-card"><p><em>“Bảo vệ bí mật nguồn tin và an toàn dữ liệu cá nhân là nguyên tắc đạo đức nghề nghiệp tối thượng, là trách nhiệm pháp lý thiêng liêng của người làm báo.”</em></p></blockquote>
-<h3 class="subsection-title">Nhận diện nguy cơ rò rỉ dữ liệu trong kỷ nguyên AI</h3>
+<h3 id="nh-n-di-n-nguy-c-r-r-d-li-u-trong-k-nguy-n-ai" class="subsection-title">Nhận diện nguy cơ rò rỉ dữ liệu trong kỷ nguyên AI</h3>
 <p class="body-p">Trong hoạt động báo chí điều tra, phóng viên thường xuyên tiếp xúc với các tài liệu nội bộ, đơn thư khiếu nại tố giác và danh sách người dân cung cấp thông tin. Một thói quen nguy hiểm là việc dán nguyên văn các tài liệu này vào các ứng dụng AI công cộng trên Internet mà không có biện pháp che giấu dữ liệu định danh.</p>
 <p class="body-p">Các rủi ro an toàn thông tin lớn nhất cần phòng ngừa:</p>
 <ul class="content-list">
@@ -2346,7 +2390,7 @@ Nhiệm vụ của bạn:
 <li><strong>Vi phạm quy định pháp luật về bảo vệ dữ liệu:</strong> Nghị định số 13/2023/NĐ-CP quy định rất chặt chẽ về nghĩa vụ bảo vệ dữ liệu cá nhân (số Căn cước công dân, tài khoản ngân hàng, đời tư cá nhân). Việc làm lộ lọt dữ liệu có thể dẫn đến xử phạt hành chính nghiêm khắc và trách nhiệm bồi thường dân sự.</li>
 <li><strong>Trách nhiệm bảo vệ nguồn tin:</strong> Điều 38 Luật Báo chí số 126/2025/QH15 quy định rõ quyền và nghĩa vụ của cơ quan báo chí trong việc không tiết lộ danh tính người cung cấp thông tin, bảo đảm an toàn tính mạng và việc làm cho người tố giác sai phạm.</li>
 </ul>
-<h3 class="subsection-title">Hướng dẫn kỹ thuật: Khóa chặt quyền riêng tư trên các nền tảng AI</h3>
+<h3 id="h-ng-d-n-k-thu-t-kh-a-ch-t-quy-n-ri-ng-t-tr-n-c-c-n-n-t-ng-ai" class="subsection-title">Hướng dẫn kỹ thuật: Khóa chặt quyền riêng tư trên các nền tảng AI</h3>
 <h4 class="minor-title">1. Cách tắt tính năng chia sẻ dữ liệu huấn luyện trên ChatGPT:</h4>
 <ul class="content-list">
 <li>Mở <strong>Settings</strong> (Cài đặt) $	o$ Chọn mục <strong>Data Controls</strong> (Kiểm soát dữ liệu).</li>
@@ -2357,7 +2401,7 @@ Nhiệm vụ của bạn:
 <ul class="content-list">
 <li>Các gói tài khoản doanh nghiệp (ChatGPT Team/Enterprise hoặc Claude Team) có cam kết pháp lý bảo mật (SOC 2, HIPAA) và mặc định không huấn luyện trên dữ liệu người dùng. Phóng viên nên ưu tiên sử dụng tài khoản làm việc của tòa soạn cấp.</li>
 </ul>
-<h3 class="subsection-title">Bộ công cụ bảo mật thực chiến dành cho phóng viên điều tra</h3>
+<h3 id="b-c-ng-c-b-o-m-t-th-c-chi-n-d-nh-cho-ph-ng-vi-n-i-u-tra" class="subsection-title">Bộ công cụ bảo mật thực chiến dành cho phóng viên điều tra</h3>
 
         <div class="table-container">
             <div class="table-header-bar">
@@ -2382,7 +2426,7 @@ Nhiệm vụ của bạn:
 <td data-label="TÍNH NĂNG &amp; CÁCH DÙNG"><span class="cell-label">TÍNH NĂNG & CÁCH DÙNG: </span><span class="cell-value"><strong>Bảo vệ kho chứng cứ điều tra:</strong> Công cụ mã hóa mã nguồn mở hoàn toàn miễn phí. Giúp mã hóa từng thư mục chứa tài liệu điều tra bằng thuật toán AES-256 trước khi tải lên Google Drive, iCloud hoặc chép vào USB. Ngay cả khi tài khoản bị lộ mật khẩu, kẻ gian cũng không thể mở xem tài liệu.</span></td>
 </tr>
 </tbody></table></div>
-<h3 class="subsection-title">Khung phân tầng dữ liệu 4 cấp độ tại Tòa soạn</h3>
+<h3 id="khung-ph-n-t-ng-d-li-u-4-c-p-t-i-t-a-so-n" class="subsection-title">Khung phân tầng dữ liệu 4 cấp độ tại Tòa soạn</h3>
 
         <div class="table-container">
             <div class="table-header-bar">
@@ -2417,7 +2461,7 @@ Nhiệm vụ của bạn:
 <td data-label="NGUYÊN TẮC XỬ LÝ KHI DÙNG AI"><span class="cell-label">NGUYÊN TẮC XỬ LÝ KHI DÙNG AI: </span><span class="cell-value"><strong>Tuyệt đối nghiêm cấm nạp vào bất kỳ hệ thống AI nào kết nối mạng Internet.</strong> Chỉ xử lý thủ công hoặc trên máy tính cách ly hoàn toàn (Air-gapped).</span></td>
 </tr>
 </tbody></table></div>
-<h3 class="subsection-title">Quy trình 4 bước làm sạch dữ liệu (Data Sanitization)</h3>
+<h3 id="quy-tr-nh-4-b-c-l-m-s-ch-d-li-u-data-sanitization" class="subsection-title">Quy trình 4 bước làm sạch dữ liệu (Data Sanitization)</h3>
 <p class="body-p">Trước khi nhờ AI hỗ trợ bóc tách một lá đơn khiếu nại hoặc biên bản:</p>
 <ol class="content-list numbered">
 <li>Tạo một bản sao làm việc (Working Copy), cất bản gốc có mộc đỏ vào thư mục mã hóa.</li>
@@ -2439,7 +2483,7 @@ Nhiệm vụ của bạn:
             <div class="section-indicator">📖 Chương 15: Tòa Soạn Cá Nhân Thông Minh</div>
             <h1 class="chapter-title">CHƯƠNG 15: MÔ HÌNH TÒA SOẠN CÁ NHÂN THÔNG MINH — TÍCH HỢP NĂNG LỰC NHÀ BÁO HIỆN ĐẠI</h1>
 <blockquote class="quote-card"><p><em>“Mô hình Tòa soạn Cá nhân Thông minh kết hợp hài hòa giữa sức mạnh công nghệ số và bản lĩnh chính trị, ngòi bút chính luận đĩnh đạc của người làm báo hiện đại.”</em></p></blockquote>
-<h3 class="subsection-title">Chân dung người làm báo đa năng trong kỷ nguyên mới</h3>
+<h3 id="ch-n-dung-ng-i-l-m-b-o-a-n-ng-trong-k-nguy-n-m-i" class="subsection-title">Chân dung người làm báo đa năng trong kỷ nguyên mới</h3>
 <p class="body-p">Sau khi làm chủ các kỹ năng từ gỡ băng âm thanh, đọc hiểu hồ sơ lớn, phân tích dữ liệu, chuẩn bị phỏng vấn đối chất đến đóng gói sản phẩm đa phương tiện, phóng viên có thể tích hợp toàn bộ các năng lực này thành một hệ sinh thái làm việc cá nhân hiệu quả: <strong>Tòa soạn Cá nhân Thông minh (Personal AI Newsroom)</strong>.</p>
 <p class="body-p">Mô hình này không nhằm thay thế quy trình tập thể của cơ quan báo chí, mà giúp từng cá nhân phóng viên:</p>
 <ul class="content-list">
@@ -2448,7 +2492,7 @@ Nhiệm vụ của bạn:
 <li>Tạo ra các sản phẩm báo chí hoàn thiện, đa dạng về định dạng (chữ viết, video ngắn, số liệu trực quan) phục vụ công chúng.</li>
 <li>Giữ vững bản lĩnh nghề nghiệp, bảo đảm mọi chi tiết đều được kiểm chứng đối soát theo chuẩn mực thông tấn nghiêm ngặt.</li>
 </ul>
-<h3 class="subsection-title">Cấu trúc "Bàn làm việc số" (Digital Desk Architecture) trên máy tính phóng viên</h3>
+<h3 id="c-u-tr-c-b-n-l-m-vi-c-s-digital-desk-architecture-tr-n-m-y-t-nh-ph-ng-vi-n" class="subsection-title">Cấu trúc "Bàn làm việc số" (Digital Desk Architecture) trên máy tính phóng viên</h3>
 <p class="body-p">Để tác nghiệp khoa học, phóng viên nên tổ chức cây thư mục lưu trữ thống nhất trên máy tính cá nhân cho từng tuyến bài:</p>
 
         <div class="prompt-box">
@@ -2465,7 +2509,7 @@ Nhiệm vụ của bạn:
 └── 📁 05_THANH_PHAM_XUAT_BAN/      &lt;- Bài viết hoàn chỉnh + Ảnh hiện trường + Kịch bản video 60s</code></pre>
         </div>
         
-<h3 class="subsection-title">Kiến trúc 5 tầng năng lực của người làm báo hiện đại</h3>
+<h3 id="ki-n-tr-c-5-t-ng-n-ng-l-c-c-a-ng-i-l-m-b-o-hi-n-i" class="subsection-title">Kiến trúc 5 tầng năng lực của người làm báo hiện đại</h3>
 
         <div class="prompt-box">
             <div class="prompt-header">
@@ -2492,7 +2536,7 @@ Nhiệm vụ của bạn:
 └─────────────────────────────────────────────────────────────────────────────┘</code></pre>
         </div>
         
-<h3 class="subsection-title">Chu trình tác nghiệp 8 bước từ manh mối ban đầu đến tác phẩm hoàn chỉnh</h3>
+<h3 id="chu-tr-nh-t-c-nghi-p-8-b-c-t-manh-m-i-ban-u-n-t-c-ph-m-ho-n-ch-nh" class="subsection-title">Chu trình tác nghiệp 8 bước từ manh mối ban đầu đến tác phẩm hoàn chỉnh</h3>
 <p class="body-p">Khi thực hiện một tuyến bài phóng sự điều tra, phóng viên vận hành chu trình 8 bước:</p>
 <ol class="content-list numbered">
 <li><strong>Phát hiện manh mối:</strong> Nắm bắt tín hiệu từ đơn thư bạn đọc hoặc phản ánh dân sinh qua AI Radar.</li>
@@ -2504,7 +2548,7 @@ Nhiệm vụ của bạn:
 <li><strong>Chắp bút theo chuẩn BLUF:</strong> Viết Sapo đanh thép, thân bài khúc chiết, lọc bỏ toàn bộ văn mẫu sáo rỗng.</li>
 <li><strong>Đóng gói đa phương tiện & Rà soát pháp lý:</strong> Vẽ biểu đồ số liệu trên Datawrapper, dựng kịch bản video 60s trên CapCut; đối soát 100% chứng cứ gốc trước khi trình duyệt xuất bản.</li>
 </ol>
-<h3 class="subsection-title">Lời kết: Giá trị bất biến của người cầm bút</h3>
+<h3 id="l-i-k-t-gi-tr-b-t-bi-n-c-a-ng-i-c-m-b-t" class="subsection-title">Lời kết: Giá trị bất biến của người cầm bút</h3>
 <p class="body-p">Trí tuệ nhân tạo là một bước tiến vượt bậc của công nghệ thông tin, mở ra những công cụ phụ trợ mạnh mẽ cho hoạt động báo chí. Tuy nhiên, công nghệ mãi mãi chỉ là phương tiện.</p>
 <p class="body-p">Linh hồn của tác phẩm báo chí, niềm tin cậy của bạn đọc và uy tín của cơ quan báo chí được tạo nên từ <strong>sự dấn thân không ngại khó khăn tại hiện trường, cái nhìn đa chiều thấu đáo, sự thấu cảm với đời sống nhân dân và lương tâm trong sáng của người làm báo</strong>. Làm chủ công nghệ với cái đầu lạnh và trái tim ấm áp chính là con đường để mỗi phóng viên chúng ta vững vàng tiến bước trong kỷ nguyên số.</p>
         </section>
