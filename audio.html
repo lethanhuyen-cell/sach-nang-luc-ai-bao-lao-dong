@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>🎧 Sách Nói Báo Lao Động (Chế Độ Ô Tô / Lái Xe)</title>
+    <style>
+        :root {
+            --bg-color: #12100e;
+            --card-bg: #1c1814;
+            --card-active: #321c19;
+            --text-color: #f7eedf;
+            --text-muted: #a89f91;
+            --accent-red: #d32f2f;
+            --accent-gold: #d4a373;
+            --border-color: #2e261f;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            padding-bottom: 240px;
+        }
+        header {
+            position: sticky; top: 0; background: #181410;
+            padding: 16px 20px; border-bottom: 1px solid var(--border-color);
+            display: flex; align-items: center; justify-content: space-between; z-index: 100;
+        }
+        .brand { font-size: 16px; font-weight: 700; color: var(--accent-gold); letter-spacing: 0.5px; }
+        .badge { background: #3e2723; color: #ffcc80; font-size: 11px; font-weight: 700; padding: 4px 10px; border-radius: 12px; border: 1px solid #5d4037; }
+        .container { max-width: 680px; margin: 0 auto; padding: 16px; }
+        .hero { background: linear-gradient(135deg, #2a1512 0%, #1a1410 100%); border: 1px solid #4a2420; border-radius: 14px; padding: 20px; margin-bottom: 20px; }
+        .hero h1 { font-size: 20px; margin-bottom: 8px; color: #ffffff; }
+        .hero p { font-size: 13.5px; color: var(--text-muted); line-height: 1.5; }
+        .track-row { display: flex; align-items: center; gap: 14px; padding: 14px 16px; background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 12px; margin-bottom: 10px; cursor: pointer; transition: all 0.15s ease; }
+        .track-row:active { transform: scale(0.98); background: #26201b; }
+        .track-row.active { border-color: var(--accent-red); background: var(--card-active); }
+        .track-row.active .track-name { color: #ff8a80; font-weight: 700; }
+        .track-row.active .track-play-btn { color: #ff8a80; }
+        .track-num { font-size: 16px; font-weight: 800; color: var(--accent-gold); min-width: 28px; }
+        .track-details { flex: 1; }
+        .track-name { font-size: 15px; font-weight: 600; line-height: 1.35; margin-bottom: 4px; }
+        .track-meta { font-size: 12px; color: var(--text-muted); }
+        .track-play-btn { background: none; border: none; font-size: 18px; color: var(--text-muted); cursor: pointer; }
+        
+        /* BẢNG ĐIỀU KHIỂN LÁI XE CỐ ĐỊNH PHÍA DƯỚI */
+        .car-dock {
+            position: fixed; bottom: 0; left: 0; right: 0;
+            background: #14110e; border-top: 2px solid #5d4037;
+            padding: 16px 20px env(safe-area-inset-bottom);
+            box-shadow: 0 -6px 25px rgba(0,0,0,0.7); z-index: 1000;
+        }
+        .dock-inner { max-width: 680px; margin: 0 auto; }
+        .dock-title { font-size: 14.5px; font-weight: 700; color: #ffffff; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; text-align: center; margin-bottom: 10px; }
+        .scrub-box { display: flex; align-items: center; gap: 10px; margin-bottom: 14px; }
+        .time-label { font-size: 12px; color: var(--text-muted); font-variant-numeric: tabular-nums; min-width: 42px; }
+        .scrubber { flex: 1; height: 6px; border-radius: 3px; accent-color: var(--accent-red); cursor: pointer; }
+        .car-controls { display: flex; align-items: center; justify-content: space-around; }
+        .btn-speed { background: #26201b; border: 1px solid #4a3a2d; color: #ffcc80; font-size: 13px; font-weight: 700; padding: 8px 14px; border-radius: 16px; cursor: pointer; }
+        .btn-seek { width: 52px; height: 52px; border-radius: 50%; background: #26201b; border: 1px solid #4a3a2d; color: #f7eedf; font-size: 14px; font-weight: 700; cursor: pointer; display: flex; align-items: center; justify-content: center; }
+        .btn-seek:active { transform: scale(0.92); background: #332b24; }
+        .btn-main-play { width: 72px; height: 72px; border-radius: 50%; background: var(--accent-red); border: 2px solid #ef5350; color: #ffffff; font-size: 28px; cursor: pointer; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 15px rgba(211,47,47,0.5); }
+        .btn-main-play:active { background: #b71c1c; transform: scale(0.92); }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="brand">🎧 BÁO LAO ĐỘNG — SÁCH NÓI</div>
+        <div class="badge">🚗 CHẾ ĐỘ LÁI XE</div>
+    </header>
+    <main class="container">
+        <div class="hero">
+            <h1>Năng Lực AI Dành Cho Phóng Viên</h1>
+            <p>Trọn bộ 18 chương sách nói âm thanh chuẩn mực. Tự động chuyển bài liên tục, hỗ trợ điều khiển trên vô lăng ô tô & màn hình khóa điện thoại khi lái xe.</p>
+        </div>
+        <div style="font-size: 14px; font-weight: 700; color: var(--accent-gold); margin-bottom: 12px; text-transform: uppercase;">Danh Mục 18 Chương Sách Nói</div>
+        <div id="playlist">
+            
+        <div class="track-row" id="track-0" onclick="selectTrack(0)">
+            <div class="track-num">01</div>
+            <div class="track-details">
+                <div class="track-name">Lời nói đầu — Thư gửi anh em phóng viên văn phòng</div>
+                <div class="track-meta">🎧 00_Loi_Noi_Dau.m4a</div>
+            </div>
+            <button class="track-play-btn" title="Phát">▶</button>
+        </div>
+        
+        <div class="track-row" id="track-1" onclick="selectTrack(1)">
+            <div class="track-num">02</div>
+            <div class="track-details">
+                <div class="track-name">Phần I: Bối cảnh Báo chí Hiện đại & Pháp lý</div>
+                <div class="track-meta">🎧 01_Boi_Canh_Bao_Chi_Va_AI.m4a</div>
+            </div>
+            <button class="track-play-btn" title="Phát">▶</button>
+        </div>
+        
+        <div class="track-row" id="track-2" onclick="selectTrack(2)">
+            <div class="track-num">03</div>
+            <div class="track-details">
+                <div class="track-name">Chia sẻ Kinh nghiệm Tác nghiệp AI (11 Điểm cốt lõi)</div>
+                <div class="track-meta">🎧 02_Chia_Se_Kinh_Nghiem_Tac_Nghiep_AI.m4a</div>
+            </div>
+            <button class="track-play-btn" title="Phát">▶</button>
+        </div>
+        
+        <div class="track-row" id="track-3" onclick="selectTrack(3)">
+            <div class="track-num">04</div>
+            <div class="track-details">
+                <div class="track-name">Chương 1: Hiểu Đúng Bản Chất AI</div>
+                <div class="track-meta">🎧 03_Chuong_01_Hieu_Dung_Ban_Chat_AI.m4a</div>
+            </div>
+            <button class="track-play-btn" title="Phát">▶</button>
+        </div>
+        
+        <div class="track-row" id="track-4" onclick="selectTrack(4)">
+            <div class="track-num">05</div>
+            <div class="track-details">
+                <div class="track-name">Chương 2: Thiết Kế Nhiệm Vụ Cho AI</div>
+                <div class="track-meta">🎧 04_Chuong_02_Thiet_Ke_Nhiem_Vu_AI.m4a</div>
+            </div>
+            <button class="track-play-btn" title="Phát">▶</button>
+        </div>
+        
+        <div class="track-row" id="track-5" onclick="selectTrack(5)">
+            <div class="track-num">06</div>
+            <div class="track-details">
+                <div class="track-name">Chương 3: Kiểm Chứng Dữ Kiện & Ngăn Ảo Giác</div>
+                <div class="track-meta">🎧 05_Chuong_03_Kiem_Chung_Du_Kien.m4a</div>
+            </div>
+            <button class="track-play-btn" title="Phát">▶</button>
+        </div>
+        
+        <div class="track-row" id="track-6" onclick="selectTrack(6)">
+            <div class="track-num">07</div>
+            <div class="track-details">
+                <div class="track-name">Chương 4: AI Radar Săn Đề Tài Dân Sinh</div>
+                <div class="track-meta">🎧 06_Chuong_04_AI_Radar_San_De_Tai.m4a</div>
+            </div>
+            <button class="track-play-btn" title="Phát">▶</button>
+        </div>
+        
+        <div class="track-row" id="track-7" onclick="selectTrack(7)">
+            <div class="track-num">08</div>
+            <div class="track-details">
+                <div class="track-name">Chương 5: Nghiên Cứu Chuyên Sâu (OSINT)</div>
+                <div class="track-meta">🎧 07_Chuong_05_Nghien_Cuu_Chuyen_Sau_OSINT.m4a</div>
+            </div>
+            <button class="track-play-btn" title="Phát">▶</button>
+        </div>
+        
+        <div class="track-row" id="track-8" onclick="selectTrack(8)">
+            <div class="track-num">09</div>
+            <div class="track-details">
+                <div class="track-name">Chương 6: Bóc Tách Hồ Sơ Lớn</div>
+                <div class="track-meta">🎧 08_Chuong_06_Boc_Tach_Ho_So_Lon.m4a</div>
+            </div>
+            <button class="track-play-btn" title="Phát">▶</button>
+        </div>
+        
+        <div class="track-row" id="track-9" onclick="selectTrack(9)">
+            <div class="track-num">10</div>
+            <div class="track-details">
+                <div class="track-name">Chương 7: Báo Chí Dữ Liệu Thực Chiến</div>
+                <div class="track-meta">🎧 09_Chuong_07_Bao_Chi_Du_Lieu_Thuc_Chien.m4a</div>
+            </div>
+            <button class="track-play-btn" title="Phát">▶</button>
+        </div>
+        
+        <div class="track-row" id="track-10" onclick="selectTrack(10)">
+            <div class="track-num">11</div>
+            <div class="track-details">
+                <div class="track-name">Chương 8: Chuẩn Bị Phỏng Vấn Đối Chất</div>
+                <div class="track-meta">🎧 10_Chuong_08_Chuan_Bi_Phong_Van_Doi_Chat.m4a</div>
+            </div>
+            <button class="track-play-btn" title="Phát">▶</button>
+        </div>
+        
+        <div class="track-row" id="track-11" onclick="selectTrack(11)">
+            <div class="track-num">12</div>
+            <div class="track-details">
+                <div class="track-name">Chương 9: Chắp Bút & Biên Tập Đĩnh Đạc</div>
+                <div class="track-meta">🎧 11_Chuong_09_Chap_But_Va_Bien_Tap_Dinh_Dac.m4a</div>
+            </div>
+            <button class="track-play-btn" title="Phát">▶</button>
+        </div>
+        
+        <div class="track-row" id="track-12" onclick="selectTrack(12)">
+            <div class="track-num">13</div>
+            <div class="track-details">
+                <div class="track-name">Chương 10: Tác Nghiệp Đa Phương Tiện</div>
+                <div class="track-meta">🎧 12_Chuong_10_Tac_Nghiep_Da_Phuong_Tien.m4a</div>
+            </div>
+            <button class="track-play-btn" title="Phát">▶</button>
+        </div>
+        
+        <div class="track-row" id="track-13" onclick="selectTrack(13)">
+            <div class="track-num">14</div>
+            <div class="track-details">
+                <div class="track-name">Chương 11: AI Cho Phóng Viên Bám Địa Bàn</div>
+                <div class="track-meta">🎧 13_Chuong_11_AI_Cho_Phong_Vien_Bam_Dia_Ban.m4a</div>
+            </div>
+            <button class="track-play-btn" title="Phát">▶</button>
+        </div>
+        
+        <div class="track-row" id="track-14" onclick="selectTrack(14)">
+            <div class="track-num">15</div>
+            <div class="track-details">
+                <div class="track-name">Chương 12: Đặc Vụ AI Tác Nghiệp</div>
+                <div class="track-meta">🎧 14_Chuong_12_Dac_Vu_AI_Tac_Nghiep.m4a</div>
+            </div>
+            <button class="track-play-btn" title="Phát">▶</button>
+        </div>
+        
+        <div class="track-row" id="track-15" onclick="selectTrack(15)">
+            <div class="track-num">16</div>
+            <div class="track-details">
+                <div class="track-name">Chương 13: Xây Dựng Quy Trình Tự Động Hóa</div>
+                <div class="track-meta">🎧 15_Chuong_13_Xay_Dung_Quy_Trinh_Tu_Dong_Hoa.m4a</div>
+            </div>
+            <button class="track-play-btn" title="Phát">▶</button>
+        </div>
+        
+        <div class="track-row" id="track-16" onclick="selectTrack(16)">
+            <div class="track-num">17</div>
+            <div class="track-details">
+                <div class="track-name">Chương 14: Kỷ Luật An Toàn Thông Tin</div>
+                <div class="track-meta">🎧 16_Chuong_14_Ky_Luat_An_Toan_Thong_Tin.m4a</div>
+            </div>
+            <button class="track-play-btn" title="Phát">▶</button>
+        </div>
+        
+        <div class="track-row" id="track-17" onclick="selectTrack(17)">
+            <div class="track-num">18</div>
+            <div class="track-details">
+                <div class="track-name">Chương 15: Tòa Soạn Cá Nhân Thông Minh</div>
+                <div class="track-meta">🎧 17_Chuong_15_Toa_Soan_Ca_Nhan_Thong_Minh.m4a</div>
+            </div>
+            <button class="track-play-btn" title="Phát">▶</button>
+        </div>
+        
+        </div>
+    </main>
+
+    <div class="car-dock">
+        <div class="dock-inner">
+            <div class="dock-title" id="nowTitle">Chọn một chương để nghe khi lái xe...</div>
+            <div class="scrub-box">
+                <span class="time-label" id="curTime">0:00</span>
+                <input type="range" class="scrubber" id="slider" value="0" min="0" max="100" onchange="seekTo(this.value)">
+                <span class="time-label" id="durTime">0:00</span>
+            </div>
+            <div class="car-controls">
+                <button class="btn-speed" id="speedBtn" onclick="cycleSpeed()">1.0x</button>
+                <button class="btn-seek" onclick="skipSecs(-15)">⏪15s</button>
+                <button class="btn-main-play" id="playBtn" onclick="togglePlay()">▶</button>
+                <button class="btn-seek" onclick="skipSecs(15)">15s⏩</button>
+                <button class="btn-seek" onclick="playNext()">⏭</button>
+            </div>
+        </div>
+    </div>
+
+    <audio id="player" preload="metadata"></audio>
+
+    <script>
+        const tracks = [{"idx": 0, "file": "00_Loi_Noi_Dau.m4a", "title": "Lời nói đầu — Thư gửi anh em phóng viên văn phòng"}, {"idx": 1, "file": "01_Boi_Canh_Bao_Chi_Va_AI.m4a", "title": "Phần I: Bối cảnh Báo chí Hiện đại & Pháp lý"}, {"idx": 2, "file": "02_Chia_Se_Kinh_Nghiem_Tac_Nghiep_AI.m4a", "title": "Chia sẻ Kinh nghiệm Tác nghiệp AI (11 Điểm cốt lõi)"}, {"idx": 3, "file": "03_Chuong_01_Hieu_Dung_Ban_Chat_AI.m4a", "title": "Chương 1: Hiểu Đúng Bản Chất AI"}, {"idx": 4, "file": "04_Chuong_02_Thiet_Ke_Nhiem_Vu_AI.m4a", "title": "Chương 2: Thiết Kế Nhiệm Vụ Cho AI"}, {"idx": 5, "file": "05_Chuong_03_Kiem_Chung_Du_Kien.m4a", "title": "Chương 3: Kiểm Chứng Dữ Kiện & Ngăn Ảo Giác"}, {"idx": 6, "file": "06_Chuong_04_AI_Radar_San_De_Tai.m4a", "title": "Chương 4: AI Radar Săn Đề Tài Dân Sinh"}, {"idx": 7, "file": "07_Chuong_05_Nghien_Cuu_Chuyen_Sau_OSINT.m4a", "title": "Chương 5: Nghiên Cứu Chuyên Sâu (OSINT)"}, {"idx": 8, "file": "08_Chuong_06_Boc_Tach_Ho_So_Lon.m4a", "title": "Chương 6: Bóc Tách Hồ Sơ Lớn"}, {"idx": 9, "file": "09_Chuong_07_Bao_Chi_Du_Lieu_Thuc_Chien.m4a", "title": "Chương 7: Báo Chí Dữ Liệu Thực Chiến"}, {"idx": 10, "file": "10_Chuong_08_Chuan_Bi_Phong_Van_Doi_Chat.m4a", "title": "Chương 8: Chuẩn Bị Phỏng Vấn Đối Chất"}, {"idx": 11, "file": "11_Chuong_09_Chap_But_Va_Bien_Tap_Dinh_Dac.m4a", "title": "Chương 9: Chắp Bút & Biên Tập Đĩnh Đạc"}, {"idx": 12, "file": "12_Chuong_10_Tac_Nghiep_Da_Phuong_Tien.m4a", "title": "Chương 10: Tác Nghiệp Đa Phương Tiện"}, {"idx": 13, "file": "13_Chuong_11_AI_Cho_Phong_Vien_Bam_Dia_Ban.m4a", "title": "Chương 11: AI Cho Phóng Viên Bám Địa Bàn"}, {"idx": 14, "file": "14_Chuong_12_Dac_Vu_AI_Tac_Nghiep.m4a", "title": "Chương 12: Đặc Vụ AI Tác Nghiệp"}, {"idx": 15, "file": "15_Chuong_13_Xay_Dung_Quy_Trinh_Tu_Dong_Hoa.m4a", "title": "Chương 13: Xây Dựng Quy Trình Tự Động Hóa"}, {"idx": 16, "file": "16_Chuong_14_Ky_Luat_An_Toan_Thong_Tin.m4a", "title": "Chương 14: Kỷ Luật An Toàn Thông Tin"}, {"idx": 17, "file": "17_Chuong_15_Toa_Soan_Ca_Nhan_Thong_Minh.m4a", "title": "Chương 15: Tòa Soạn Cá Nhân Thông Minh"}];
+        let currentIdx = 0;
+        const player = document.getElementById('player');
+        const playBtn = document.getElementById('playBtn');
+        const nowTitle = document.getElementById('nowTitle');
+        const slider = document.getElementById('slider');
+        const curTime = document.getElementById('curTime');
+        const durTime = document.getElementById('durTime');
+        const speedBtn = document.getElementById('speedBtn');
+
+        const speeds = [1.0, 1.25, 1.5, 1.75];
+        let sIdx = 0;
+
+        function fmt(s) {
+            if (isNaN(s)) return '0:00';
+            const m = Math.floor(s / 60);
+            const sec = Math.floor(s % 60);
+            return m + ':' + (sec < 10 ? '0' : '') + sec;
+        }
+
+        function selectTrack(idx) {
+            if (idx < 0 || idx >= tracks.length) return;
+            currentIdx = idx;
+            const t = tracks[idx];
+            player.src = t.file;
+            nowTitle.textContent = t.title;
+            
+            document.querySelectorAll('.track-row').forEach(r => r.classList.remove('active'));
+            const activeEl = document.getElementById('track-' + idx);
+            if (activeEl) {
+                activeEl.classList.add('active');
+                activeEl.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            }
+
+            // Cập nhật MediaSession API cho xe hơi và màn hình khóa
+            if ('mediaSession' in navigator) {
+                navigator.mediaSession.metadata = new MediaMetadata({
+                    title: t.title,
+                    artist: 'Báo Lao Động — Văn phòng Đại diện tại TP.HCM',
+                    album: 'Năng Lực AI Dành Cho Phóng Viên'
+                });
+                navigator.mediaSession.setActionHandler('play', () => player.play());
+                navigator.mediaSession.setActionHandler('pause', () => player.pause());
+                navigator.mediaSession.setActionHandler('previoustrack', () => playPrev());
+                navigator.mediaSession.setActionHandler('nexttrack', () => playNext());
+            }
+
+            player.play().then(() => playBtn.textContent = '⏸').catch(e => console.log(e));
+        }
+
+        function togglePlay() {
+            if (!player.src) { selectTrack(0); return; }
+            if (player.paused) { player.play(); playBtn.textContent = '⏸'; }
+            else { player.pause(); playBtn.textContent = '▶'; }
+        }
+
+        function skipSecs(d) {
+            if (player.duration) player.currentTime = Math.max(0, Math.min(player.duration, player.currentTime + d));
+        }
+
+        function seekTo(val) {
+            if (player.duration) player.currentTime = (val / 100) * player.duration;
+        }
+
+        function playNext() {
+            if (currentIdx < tracks.length - 1) selectTrack(currentIdx + 1);
+            else selectTrack(0);
+        }
+
+        function playPrev() {
+            if (currentIdx > 0) selectTrack(currentIdx - 1);
+        }
+
+        function cycleSpeed() {
+            sIdx = (sIdx + 1) % speeds.length;
+            player.playbackRate = speeds[sIdx];
+            speedBtn.textContent = speeds[sIdx] + 'x';
+        }
+
+        player.addEventListener('timeupdate', () => {
+            if (player.duration) {
+                slider.value = (player.currentTime / player.duration) * 100;
+                curTime.textContent = fmt(player.currentTime);
+                durTime.textContent = fmt(player.duration);
+            }
+        });
+
+        player.addEventListener('ended', () => playNext());
+    </script>
+</body>
+</html>
