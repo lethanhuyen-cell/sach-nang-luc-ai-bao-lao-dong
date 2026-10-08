@@ -219,6 +219,44 @@
             color: #ffffff;
         }
 
+        /* Sub-track Styling for Chia sẻ kinh nghiệm */
+        .subtrack-group {
+            margin-left: 18px;
+            padding-left: 14px;
+            border-left: 2px solid rgba(255, 179, 0, 0.25);
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            margin-top: 4px;
+            margin-bottom: 8px;
+        }
+
+        .track-card.subtrack {
+            padding: 10px 14px;
+            background: rgba(30, 26, 21, 0.7);
+            border-radius: 10px;
+        }
+
+        .track-card.subtrack .track-badge {
+            font-size: 11.5px;
+            min-width: 38px;
+            color: var(--accent-gold);
+            background: rgba(255, 179, 0, 0.12);
+            padding: 2px 6px;
+            border-radius: 6px;
+        }
+
+        .track-card.subtrack .track-title {
+            font-size: 13.5px;
+            line-height: 1.35;
+        }
+
+        .track-card.subtrack .track-play-btn {
+            width: 30px;
+            height: 30px;
+            font-size: 12px;
+        }
+
         /* CAR DOCK / STICKY PLAYER */
         .car-player-dock {
             position: fixed;
@@ -342,11 +380,11 @@
         <div class="hero-banner">
             <span class="hero-badge">🚗 Chế Độ Lái Xe • Giọng Đọc Neural Trầm Ấm</span>
             <h1 class="hero-title">VPTPHCM — AI VÀ NHÀ BÁO</h1>
-            <p class="hero-desc">Trọn bộ 18 tập sách nói chuẩn phòng thu VieNeu-TTS v3 Turbo 48kHz (BTV Thiện Minh). Hỗ trợ tự động chuyển bài liên tục, điều khiển qua tai nghe, vô lăng ô tô và màn hình khóa điện thoại.</p>
+            <p class="hero-desc">Trọn bộ sách nói chuẩn phòng thu VieNeu-TTS v3 Turbo 48kHz (BTV Thiện Minh). Hỗ trợ nghe trọn tập hoặc từng mục chuyên đề nhỏ, tự động chuyển bài liên tục, điều khiển qua tai nghe, vô lăng ô tô và màn hình khóa điện thoại.</p>
         </div>
 
         <div class="section-header">
-            <span>Danh mục 18 Tập Sách Nói</span>
+            <span>Danh mục Tập Sách Nói & Chuyên Đề</span>
             <span style="font-size: 11px; color: var(--text-sub); text-transform: none;">Tự động phát liên tục 🔁</span>
         </div>
 
@@ -373,13 +411,121 @@
         <div class="track-card" id="track-2" onclick="selectTrack(2)">
             <div class="track-badge">#03</div>
             <div class="track-meta-box">
-                <div class="track-title">Chia sẻ Kinh nghiệm Tác nghiệp AI — Toàn văn 11 Điểm Cốt lõi</div>
-                <div class="track-sub">🎙️ BTV Thiện Minh • VieNeu-TTS Studio 48kHz Master</div>
+                <div class="track-title">Chia sẻ Kinh nghiệm Tác nghiệp AI — Toàn văn 11 Điểm Cốt lõi (Bản Đầy Đủ 32 phút)</div>
+                <div class="track-sub">🎙️ BTV Thiện Minh • VieNeu-TTS Studio 48kHz Master • 32:11</div>
             </div>
             <button class="track-play-btn" aria-label="Phát">▶</button>
         </div>
 
-        <div class="track-card" id="track-3" onclick="selectTrack(3)">
+        <!-- 11 Mục Nhỏ Chia Sẻ Kinh Nghiệm -->
+        <div class="subtrack-group">
+            <div class="track-card subtrack" id="track-3" onclick="selectTrack(3)">
+                <div class="track-badge">#03.0</div>
+                <div class="track-meta-box">
+                    <div class="track-title">Lời mở đầu: Thay đổi góc nhìn về AI trong tác nghiệp báo chí</div>
+                    <div class="track-sub">🎙️ BTV Thiện Minh • 0:41</div>
+                </div>
+                <button class="track-play-btn" aria-label="Phát">▶</button>
+            </div>
+            <div class="track-card subtrack" id="track-4" onclick="selectTrack(4)">
+                <div class="track-badge">#03.1</div>
+                <div class="track-meta-box">
+                    <div class="track-title">Mục 1: Bắt đầu từ vấn đề công việc, không bắt đầu từ công nghệ</div>
+                    <div class="track-sub">🎙️ BTV Thiện Minh • 1:14</div>
+                </div>
+                <button class="track-play-btn" aria-label="Phát">▶</button>
+            </div>
+            <div class="track-card subtrack" id="track-5" onclick="selectTrack(5)">
+                <div class="track-badge">#03.2</div>
+                <div class="track-meta-box">
+                    <div class="track-title">Mục 2: Giao vai trò cho AI và tạo cho nó đủ ngữ cảnh</div>
+                    <div class="track-sub">🎙️ BTV Thiện Minh • 2:03</div>
+                </div>
+                <button class="track-play-btn" aria-label="Phát">▶</button>
+            </div>
+            <div class="track-card subtrack" id="track-6" onclick="selectTrack(6)">
+                <div class="track-badge">#03.3</div>
+                <div class="track-meta-box">
+                    <div class="track-title">Mục 3: Quét rộng, nghiên cứu sâu, lọc mạnh và chú ý dấu hiệu bất thường</div>
+                    <div class="track-sub">🎙️ BTV Thiện Minh • 6:22</div>
+                </div>
+                <button class="track-play-btn" aria-label="Phát">▶</button>
+            </div>
+            <div class="track-card subtrack" id="track-7" onclick="selectTrack(7)">
+                <div class="track-badge">#03.4</div>
+                <div class="track-meta-box">
+                    <div class="track-title">Mục 4: Phân biệt dữ kiện, tín hiệu, giả thuyết & đọc chéo quyết sách</div>
+                    <div class="track-sub">🎙️ BTV Thiện Minh • 2:18</div>
+                </div>
+                <button class="track-play-btn" aria-label="Phát">▶</button>
+            </div>
+            <div class="track-card subtrack" id="track-8" onclick="selectTrack(8)">
+                <div class="track-badge">#03.5</div>
+                <div class="track-meta-box">
+                    <div class="track-title">Mục 5: Đừng chỉ hỏi “có tin gì”, hãy tìm xem “cái gì đang thay đổi”</div>
+                    <div class="track-sub">🎙️ BTV Thiện Minh • 2:34</div>
+                </div>
+                <button class="track-play-btn" aria-label="Phát">▶</button>
+            </div>
+            <div class="track-card subtrack" id="track-9" onclick="selectTrack(9)">
+                <div class="track-badge">#03.6</div>
+                <div class="track-meta-box">
+                    <div class="track-title">Mục 6: Một ý tưởng chỉ có giá trị khi đi được tới tác nghiệp</div>
+                    <div class="track-sub">🎙️ BTV Thiện Minh • 1:41</div>
+                </div>
+                <button class="track-play-btn" aria-label="Phát">▶</button>
+            </div>
+            <div class="track-card subtrack" id="track-10" onclick="selectTrack(10)">
+                <div class="track-badge">#03.7</div>
+                <div class="track-meta-box">
+                    <div class="track-title">Mục 7: Dùng AI như một đối thủ phản biện, không phải người đồng tình</div>
+                    <div class="track-sub">🎙️ BTV Thiện Minh • 1:53</div>
+                </div>
+                <button class="track-play-btn" aria-label="Phát">▶</button>
+            </div>
+            <div class="track-card subtrack" id="track-11" onclick="selectTrack(11)">
+                <div class="track-badge">#03.8</div>
+                <div class="track-meta-box">
+                    <div class="track-title">Mục 8: Dùng AI trước khi viết, không bắt đầu từ tiêu đề</div>
+                    <div class="track-sub">🎙️ BTV Thiện Minh • 1:53</div>
+                </div>
+                <button class="track-play-btn" aria-label="Phát">▶</button>
+            </div>
+            <div class="track-card subtrack" id="track-12" onclick="selectTrack(12)">
+                <div class="track-badge">#03.9</div>
+                <div class="track-meta-box">
+                    <div class="track-title">Mục 9: Đầu ra đầu tiên hiếm khi là đầu ra cuối cùng</div>
+                    <div class="track-sub">🎙️ BTV Thiện Minh • 1:44</div>
+                </div>
+                <button class="track-play-btn" aria-label="Phát">▶</button>
+            </div>
+            <div class="track-card subtrack" id="track-13" onclick="selectTrack(13)">
+                <div class="track-badge">#03.10</div>
+                <div class="track-meta-box">
+                    <div class="track-title">Mục 10: Từ prompt cá nhân đến hệ thống tri thức của tòa soạn</div>
+                    <div class="track-sub">🎙️ BTV Thiện Minh • 3:27</div>
+                </div>
+                <button class="track-play-btn" aria-label="Phát">▶</button>
+            </div>
+            <div class="track-card subtrack" id="track-14" onclick="selectTrack(14)">
+                <div class="track-badge">#03.11</div>
+                <div class="track-meta-box">
+                    <div class="track-title">Mục 11: Ranh giới cuối cùng vẫn là trách nhiệm nghề nghiệp của con người</div>
+                    <div class="track-sub">🎙️ BTV Thiện Minh • 2:38</div>
+                </div>
+                <button class="track-play-btn" aria-label="Phát">▶</button>
+            </div>
+            <div class="track-card subtrack" id="track-15" onclick="selectTrack(15)">
+                <div class="track-badge">#03.12</div>
+                <div class="track-meta-box">
+                    <div class="track-title">Tổng kết: Nếu nhà báo không cập nhật và làm chủ AI thì sao?</div>
+                    <div class="track-sub">🎙️ BTV Thiện Minh • 3:37</div>
+                </div>
+                <button class="track-play-btn" aria-label="Phát">▶</button>
+            </div>
+        </div>
+
+        <div class="track-card" id="track-16" onclick="selectTrack(16)">
             <div class="track-badge">#04</div>
             <div class="track-meta-box">
                 <div class="track-title">Chương 1: Hiểu Đúng Bản Chất AI — Ranh Giới Công Nghệ & Trách Nhiệm</div>
@@ -388,7 +534,7 @@
             <button class="track-play-btn" aria-label="Phát">▶</button>
         </div>
 
-        <div class="track-card" id="track-4" onclick="selectTrack(4)">
+        <div class="track-card" id="track-17" onclick="selectTrack(17)">
             <div class="track-badge">#05</div>
             <div class="track-meta-box">
                 <div class="track-title">Chương 2: Thiết Kế Nhiệm Vụ Cho AI — Kỹ Thuật Chê AI & Hiệu Chỉnh Nhiều Vòng</div>
@@ -397,7 +543,7 @@
             <button class="track-play-btn" aria-label="Phát">▶</button>
         </div>
 
-        <div class="track-card" id="track-5" onclick="selectTrack(5)">
+        <div class="track-card" id="track-18" onclick="selectTrack(18)">
             <div class="track-badge">#06</div>
             <div class="track-meta-box">
                 <div class="track-title">Chương 3: Kiểm Chứng Dữ Kiện — Ma Trận Claim Source Status & Audit Trail</div>
@@ -406,7 +552,7 @@
             <button class="track-play-btn" aria-label="Phát">▶</button>
         </div>
 
-        <div class="track-card" id="track-6" onclick="selectTrack(6)">
+        <div class="track-card" id="track-19" onclick="selectTrack(19)">
             <div class="track-badge">#07</div>
             <div class="track-meta-box">
                 <div class="track-title">Chương 4: AI RADAR Săn Đề Tài Đa Tầng — Tín Hiệu Sớm & Đọc Chéo 3 Chiều</div>
@@ -415,7 +561,7 @@
             <button class="track-play-btn" aria-label="Phát">▶</button>
         </div>
 
-        <div class="track-card" id="track-7" onclick="selectTrack(7)">
+        <div class="track-card" id="track-20" onclick="selectTrack(20)">
             <div class="track-badge">#08</div>
             <div class="track-meta-box">
                 <div class="track-title">Chương 5: Deep Research & OSINT — Phân Định Nghiên Cứu Đa Nguồn & Nguồn Mở</div>
@@ -424,7 +570,7 @@
             <button class="track-play-btn" aria-label="Phát">▶</button>
         </div>
 
-        <div class="track-card" id="track-8" onclick="selectTrack(8)">
+        <div class="track-card" id="track-21" onclick="selectTrack(21)">
             <div class="track-badge">#09</div>
             <div class="track-meta-box">
                 <div class="track-title">Chương 6: Bóc Tách Hồ Sơ Lớn — Kỹ Thuật Đọc Báo Cáo & Kết Luận Thanh Tra</div>
@@ -433,7 +579,7 @@
             <button class="track-play-btn" aria-label="Phát">▶</button>
         </div>
 
-        <div class="track-card" id="track-9" onclick="selectTrack(9)">
+        <div class="track-card" id="track-22" onclick="selectTrack(22)">
             <div class="track-badge">#10</div>
             <div class="track-meta-box">
                 <div class="track-title">Chương 7: Báo Chí Dữ Liệu Thực Chiến — Mẫu Số, Chuỗi Thời Gian & Nhân Hóa Con Số</div>
@@ -442,7 +588,7 @@
             <button class="track-play-btn" aria-label="Phát">▶</button>
         </div>
 
-        <div class="track-card" id="track-10" onclick="selectTrack(10)">
+        <div class="track-card" id="track-23" onclick="selectTrack(23)">
             <div class="track-badge">#11</div>
             <div class="track-meta-box">
                 <div class="track-title">Chương 8: Chuẩn Bị Phỏng Vấn Đối Chất — Giả Lập Kịch Bản Phản Biện Đa Chiều</div>
@@ -451,7 +597,7 @@
             <button class="track-play-btn" aria-label="Phát">▶</button>
         </div>
 
-        <div class="track-card" id="track-11" onclick="selectTrack(11)">
+        <div class="track-card" id="track-24" onclick="selectTrack(24)">
             <div class="track-badge">#12</div>
             <div class="track-meta-box">
                 <div class="track-title">Chương 9: Chắp Bút & Biên Tập Đĩnh Đạc — BLUF, Kể Chuyện Báo Chí & Khử Văn Mẫu</div>
@@ -460,7 +606,7 @@
             <button class="track-play-btn" aria-label="Phát">▶</button>
         </div>
 
-        <div class="track-card" id="track-12" onclick="selectTrack(12)">
+        <div class="track-card" id="track-25" onclick="selectTrack(25)">
             <div class="track-badge">#13</div>
             <div class="track-meta-box">
                 <div class="track-title">Chương 10: Tác Nghiệp Đa Phương Tiện — Xưởng Sản Xuất Bóc Băng, Đồ Họa & Video Ngắn</div>
@@ -469,7 +615,7 @@
             <button class="track-play-btn" aria-label="Phát">▶</button>
         </div>
 
-        <div class="track-card" id="track-13" onclick="selectTrack(13)">
+        <div class="track-card" id="track-26" onclick="selectTrack(26)">
             <div class="track-badge">#14</div>
             <div class="track-meta-box">
                 <div class="track-title">Chương 11: Nhận Diện & Kiểm Chứng Deepfake — Khung Thẩm Định 3 Tầng Chuẩn Quốc Tế</div>
@@ -478,7 +624,7 @@
             <button class="track-play-btn" aria-label="Phát">▶</button>
         </div>
 
-        <div class="track-card" id="track-14" onclick="selectTrack(14)">
+        <div class="track-card" id="track-27" onclick="selectTrack(27)">
             <div class="track-badge">#15</div>
             <div class="track-meta-box">
                 <div class="track-title">Chương 12: Bám Địa Bàn & Quản Trị Trí Nhớ Mảng — Hồ Sơ Dự Án, Nhân Vật & Tích Lũy Tri Thức</div>
@@ -487,7 +633,7 @@
             <button class="track-play-btn" aria-label="Phát">▶</button>
         </div>
 
-        <div class="track-card" id="track-15" onclick="selectTrack(15)">
+        <div class="track-card" id="track-28" onclick="selectTrack(28)">
             <div class="track-badge">#16</div>
             <div class="track-meta-box">
                 <div class="track-title">Chương 13: AI Agent & Dây Chuyền Tự Động Hóa — Vận Hành Tác Vụ Có Quality Gate</div>
@@ -496,7 +642,7 @@
             <button class="track-play-btn" aria-label="Phát">▶</button>
         </div>
 
-        <div class="track-card" id="track-16" onclick="selectTrack(16)">
+        <div class="track-card" id="track-29" onclick="selectTrack(29)">
             <div class="track-badge">#17</div>
             <div class="track-meta-box">
                 <div class="track-title">Chương 14: An Toàn Nguồn Tin, Quản Trị Rủi Ro & Khung Pháp Lý 2026</div>
@@ -505,7 +651,7 @@
             <button class="track-play-btn" aria-label="Phát">▶</button>
         </div>
 
-        <div class="track-card" id="track-17" onclick="selectTrack(17)">
+        <div class="track-card" id="track-30" onclick="selectTrack(30)">
             <div class="track-badge">#18</div>
             <div class="track-meta-box">
                 <div class="track-title">Chương 15: Mô Hình Tòa Soạn Cá Nhân Thông Minh — Cẩm Nang Chuyển Đổi Số Thực Chiến</div>
@@ -541,22 +687,35 @@
         const playlist = [
         { index: 0, title: "Lời nói đầu", file: "audio/00_Loi_Noi_Dau.mp3?v=20261008_v11x" },
         { index: 1, title: "Phần I: Bối cảnh Báo chí Hiện đại — Áp lực Công nghệ & Thông tin Nguyên bản", file: "audio/01_Boi_Canh_Bao_Chi_Va_AI.mp3?v=20261008_v11x" },
-        { index: 2, title: "Chia sẻ Kinh nghiệm Tác nghiệp AI — Toàn văn 11 Điểm Cốt lõi", file: "audio/02_Chia_Se_Kinh_Nghiem_Tac_Nghiep_AI_11_Diem.mp3?v=20261008_v11x" },
-        { index: 3, title: "Chương 1: Hiểu Đúng Bản Chất AI — Ranh Giới Công Nghệ & Trách Nhiệm", file: "audio/03_Chuong_01_Hieu_Dung_Ban_Chat_AI.mp3?v=20261008_v11x" },
-        { index: 4, title: "Chương 2: Thiết Kế Nhiệm Vụ Cho AI — Kỹ Thuật Chê AI & Hiệu Chỉnh Nhiều Vòng", file: "audio/04_Chuong_02_Thiet_Ke_Nhiem_Vu_AI.mp3?v=20261008_v11x" },
-        { index: 5, title: "Chương 3: Kiểm Chứng Dữ Kiện — Ma Trận Claim Source Status & Audit Trail", file: "audio/05_Chuong_03_Kiem_Chung_Du_Kien_Ngan_Ao_Giac.mp3?v=20261008_v11x" },
-        { index: 6, title: "Chương 4: AI RADAR Săn Đề Tài Đa Tầng — Tín Hiệu Sớm & Đọc Chéo 3 Chiều", file: "audio/06_Chuong_04_AI_Radar_San_De_Tai.mp3?v=20261008_v11x" },
-        { index: 7, title: "Chương 5: Deep Research & OSINT — Phân Định Nghiên Cứu Đa Nguồn & Nguồn Mở", file: "audio/07_Chuong_05_Nghien_Cuu_Chuyen_Sau_OSINT.mp3?v=20261008_v11x" },
-        { index: 8, title: "Chương 6: Bóc Tách Hồ Sơ Lớn — Kỹ Thuật Đọc Báo Cáo & Kết Luận Thanh Tra", file: "audio/08_Chuong_06_Boc_Tach_Ho_So_Hang_Ngan_Trang.mp3?v=20261008_v11x" },
-        { index: 9, title: "Chương 7: Báo Chí Dữ Liệu Thực Chiến — Mẫu Số, Chuỗi Thời Gian & Nhân Hóa Con Số", file: "audio/09_Chuong_07_Bao_Chi_Du_Lieu_Thuc_Chien.mp3?v=20261008_v11x" },
-        { index: 10, title: "Chương 8: Chuẩn Bị Phỏng Vấn Đối Chất — Giả Lập Kịch Bản Phản Biện Đa Chiều", file: "audio/10_Chuong_08_Chuan_Bi_Phong_Van_Doi_Chat.mp3?v=20261008_v11x" },
-        { index: 11, title: "Chương 9: Chắp Bút & Biên Tập Đĩnh Đạc — BLUF, Kể Chuyện Báo Chí & Khử Văn Mẫu", file: "audio/11_Chuong_09_Chap_But_Va_Bien_Tap_Dinh_Dac.mp3?v=20261008_v11x" },
-        { index: 12, title: "Chương 10: Tác Nghiệp Đa Phương Tiện — Xưởng Sản Xuất Bóc Băng, Đồ Họa & Video Ngắn", file: "audio/12_Chuong_10_Tac_Nghiep_Da_Phuong_Tien.mp3?v=20261008_v11x" },
-        { index: 13, title: "Chương 11: Nhận Diện & Kiểm Chứng Deepfake — Khung Thẩm Định 3 Tầng Chuẩn Quốc Tế", file: "audio/13_Chuong_11_Kiem_Chung_Deepfake_Va_Gia_Mao_So.mp3?v=20261008_v11x" },
-        { index: 14, title: "Chương 12: Bám Địa Bàn & Quản Trị Trí Nhớ Mảng — Hồ Sơ Dự Án, Nhân Vật & Tích Lũy Tri Thức", file: "audio/14_Chuong_12_Bam_Dia_Ban_Va_Tri_Nho_Mang.mp3?v=20261008_v11x" },
-        { index: 15, title: "Chương 13: AI Agent & Dây Chuyền Tự Động Hóa — Vận Hành Tác Vụ Có Quality Gate", file: "audio/15_Chuong_13_Dac_Vu_AI_Agent_Va_Quality_Gate.mp3?v=20261008_v11x" },
-        { index: 16, title: "Chương 14: An Toàn Nguồn Tin, Quản Trị Rủi Ro & Khung Pháp Lý 2026", file: "audio/16_Chuong_14_An_Toan_Nguon_Tin_Va_Phap_Ly.mp3?v=20261008_v11x" },
-        { index: 17, title: "Chương 15: Mô Hình Tòa Soạn Cá Nhân Thông Minh — Cẩm Nang Chuyển Đổi Số Thực Chiến", file: "audio/17_Chuong_15_Toa_Soan_Ca_Nhan_Thong_Minh.mp3?v=20261008_v11x" }
+        { index: 2, title: "Chia sẻ Kinh nghiệm Tác nghiệp AI — Toàn văn 11 Điểm Cốt lõi (Bản Đầy Đủ 32 phút)", file: "audio/02_Chia_Se_Kinh_Nghiem_Tac_Nghiep_AI_11_Diem.mp3?v=20261008_v11x" },
+        { index: 3, title: "Lời mở đầu: Thay đổi góc nhìn về AI trong tác nghiệp báo chí", file: "audio/chia_se_kinh_nghiem/02_00_Chia_Se_Kinh_Nghiem_Loi_Mo_Dau.mp3?v=20261008_v11x" },
+        { index: 4, title: "Mục 1: Bắt đầu từ vấn đề công việc, không bắt đầu từ công nghệ", file: "audio/chia_se_kinh_nghiem/02_01_Bat_Dau_Tu_Van_De_Cong_Viec.mp3?v=20261008_v11x" },
+        { index: 5, title: "Mục 2: Giao vai trò cho AI và tạo cho nó đủ ngữ cảnh", file: "audio/chia_se_kinh_nghiem/02_02_Giao_Vai_Tro_Cho_AI_Va_Tao_Ngu_Canh.mp3?v=20261008_v11x" },
+        { index: 6, title: "Mục 3: Quét rộng, nghiên cứu sâu, lọc mạnh và chú ý những dấu hiệu bất thường", file: "audio/chia_se_kinh_nghiem/02_03_Quet_Rong_Nghien_Cuu_Sau_Loc_Manh.mp3?v=20261008_v11x" },
+        { index: 7, title: "Mục 4: Phân biệt dữ kiện, tín hiệu và giả thuyết; đọc chéo quyết sách, dữ liệu và đời sống", file: "audio/chia_se_kinh_nghiem/02_04_Phan_Biet_Du_Kien_Tin_Hieu_Gia_Thuyet.mp3?v=20261008_v11x" },
+        { index: 8, title: "Mục 5: Đừng chỉ hỏi “có tin gì”, hãy tìm xem “cái gì đang thay đổi”", file: "audio/chia_se_kinh_nghiem/02_05_Dung_Chi_Hoi_Co_Tin_Gi_Tim_Cai_Dang_Thay_Doi.mp3?v=20261008_v11x" },
+        { index: 9, title: "Mục 6: Một ý tưởng chỉ có giá trị khi đi được tới tác nghiệp", file: "audio/chia_se_kinh_nghiem/02_06_Y_Tuong_Co_Gia_Tri_Khi_Di_Toi_Tac_Nghiep.mp3?v=20261008_v11x" },
+        { index: 10, title: "Mục 7: Dùng AI như một đối thủ phản biện, không phải người đồng tình", file: "audio/chia_se_kinh_nghiem/02_07_Dung_AI_Nhu_Doi_Thu_Phan_Bien.mp3?v=20261008_v11x" },
+        { index: 11, title: "Mục 8: Dùng AI trước khi viết, không bắt đầu từ tiêu đề", file: "audio/chia_se_kinh_nghiem/02_08_Dung_AI_Truoc_Khi_Viet_Khong_Bat_Dau_Tu_Tieu_De.mp3?v=20261008_v11x" },
+        { index: 12, title: "Mục 9: Đầu ra đầu tiên hiếm khi là đầu ra cuối cùng", file: "audio/chia_se_kinh_nghiem/02_09_Dau_Ra_Dau_Tien_Hiem_Khi_La_Cuoi_Cung.mp3?v=20261008_v11x" },
+        { index: 13, title: "Mục 10: Từ prompt cá nhân đến hệ thống tri thức của tòa soạn", file: "audio/chia_se_kinh_nghiem/02_10_Tu_Prompt_Ca_Nhan_Den_He_Thong_Tri_Thuc.mp3?v=20261008_v11x" },
+        { index: 14, title: "Mục 11: Ranh giới cuối cùng vẫn là trách nhiệm nghề nghiệp của con người", file: "audio/chia_se_kinh_nghiem/02_11_Ranh_Gioi_Cuoi_Cung_La_Trach_Nhiem_Nghe_Nghiep.mp3?v=20261008_v11x" },
+        { index: 15, title: "Tổng kết: Nếu nhà báo không cập nhật và làm chủ AI thì sao?", file: "audio/chia_se_kinh_nghiem/02_12_Tong_Ket_Neu_Nha_Bao_Khong_Cap_Nhat_AI.mp3?v=20261008_v11x" },
+        { index: 16, title: "Chương 1: Hiểu Đúng Bản Chất AI — Ranh Giới Công Nghệ & Trách Nhiệm", file: "audio/03_Chuong_01_Hieu_Dung_Ban_Chat_AI.mp3?v=20261008_v11x" },
+        { index: 17, title: "Chương 2: Thiết Kế Nhiệm Vụ Cho AI — Kỹ Thuật Chê AI & Hiệu Chỉnh Nhiều Vòng", file: "audio/04_Chuong_02_Thiet_Ke_Nhiem_Vu_AI.mp3?v=20261008_v11x" },
+        { index: 18, title: "Chương 3: Kiểm Chứng Dữ Kiện — Ma Trận Claim Source Status & Audit Trail", file: "audio/05_Chuong_03_Kiem_Chung_Du_Kien_Ngan_Ao_Giac.mp3?v=20261008_v11x" },
+        { index: 19, title: "Chương 4: AI RADAR Săn Đề Tài Đa Tầng — Tín Hiệu Sớm & Đọc Chéo 3 Chiều", file: "audio/06_Chuong_04_AI_Radar_San_De_Tai.mp3?v=20261008_v11x" },
+        { index: 20, title: "Chương 5: Deep Research & OSINT — Phân Định Nghiên Cứu Đa Nguồn & Nguồn Mở", file: "audio/07_Chuong_05_Nghien_Cuu_Chuyen_Sau_OSINT.mp3?v=20261008_v11x" },
+        { index: 21, title: "Chương 6: Bóc Tách Hồ Sơ Lớn — Kỹ Thuật Đọc Báo Cáo & Kết Luận Thanh Tra", file: "audio/08_Chuong_06_Boc_Tach_Ho_So_Hang_Ngan_Trang.mp3?v=20261008_v11x" },
+        { index: 22, title: "Chương 7: Báo Chí Dữ Liệu Thực Chiến — Mẫu Số, Chuỗi Thời Gian & Nhân Hóa Con Số", file: "audio/09_Chuong_07_Bao_Chi_Du_Lieu_Thuc_Chien.mp3?v=20261008_v11x" },
+        { index: 23, title: "Chương 8: Chuẩn Bị Phỏng Vấn Đối Chất — Giả Lập Kịch Bản Phản Biện Đa Chiều", file: "audio/10_Chuong_08_Chuan_Bi_Phong_Van_Doi_Chat.mp3?v=20261008_v11x" },
+        { index: 24, title: "Chương 9: Chắp Bút & Biên Tập Đĩnh Đạc — BLUF, Kể Chuyện Báo Chí & Khử Văn Mẫu", file: "audio/11_Chuong_09_Chap_But_Va_Bien_Tap_Dinh_Dac.mp3?v=20261008_v11x" },
+        { index: 25, title: "Chương 10: Tác Nghiệp Đa Phương Tiện — Xưởng Sản Xuất Bóc Băng, Đồ Họa & Video Ngắn", file: "audio/12_Chuong_10_Tac_Nghiep_Da_Phuong_Tien.mp3?v=20261008_v11x" },
+        { index: 26, title: "Chương 11: Nhận Diện & Kiểm Chứng Deepfake — Khung Thẩm Định 3 Tầng Chuẩn Quốc Tế", file: "audio/13_Chuong_11_Kiem_Chung_Deepfake_Va_Gia_Mao_So.mp3?v=20261008_v11x" },
+        { index: 27, title: "Chương 12: Bám Địa Bàn & Quản Trị Trí Nhớ Mảng — Hồ Sơ Dự Án, Nhân Vật & Tích Lũy Tri Thức", file: "audio/14_Chuong_12_Bam_Dia_Ban_Va_Tri_Nho_Mang.mp3?v=20261008_v11x" },
+        { index: 28, title: "Chương 13: AI Agent & Dây Chuyền Tự Động Hóa — Vận Hành Tác Vụ Có Quality Gate", file: "audio/15_Chuong_13_Dac_Vu_AI_Agent_Va_Quality_Gate.mp3?v=20261008_v11x" },
+        { index: 29, title: "Chương 14: An Toàn Nguồn Tin, Quản Trị Rủi Ro & Khung Pháp Lý 2026", file: "audio/16_Chuong_14_An_Toan_Nguon_Tin_Va_Phap_Ly.mp3?v=20261008_v11x" },
+        { index: 30, title: "Chương 15: Mô Hình Tòa Soạn Cá Nhân Thông Minh — Cẩm Nang Chuyển Đổi Số Thực Chiến", file: "audio/17_Chuong_15_Toa_Soan_Ca_Nhan_Thong_Minh.mp3?v=20261008_v11x" }
         ];
 
         let currentIdx = -1;
